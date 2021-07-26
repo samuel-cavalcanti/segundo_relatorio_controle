@@ -37,13 +37,16 @@
 \usepackage{changepage}
 \usepackage{tabularx}
 \usepackage{multirow}
-
+\usepackage{pdftexcmds}
 
 \usepackage[abbr]{lib/harvard}
 \usepackage[breaklinks,hidelinks]{hyperref}
 \usepackage[all]{hypcap}
 
 \usepackage{filecontents}
+
+
+\usepackage{xifthen}% provides \isempty test
 
 %%%%%%%%%%% PDF METADATA %%%%%%%%%%%%%
 
@@ -216,12 +219,12 @@ fluidos, sistemas de primeira ordem, sistemas de segunda ordem e controle em cas
 \section{INTRODUÇÃO}\hspace{4ex}
 
 \begin{flushleft}
-\hspace{4ex}
-escrever introdução \cite{roteiro2021}
+%\hspace{4ex}
+%escrever introdução \cite{roteiro2021}
 
 \begin{flushleft}
 %%%%%%% Primeiro roteiro%%%%%%%
-\hspace{4ex}A introdução de um controlador em um determinado sistema visa a modificação de sua dinâmica, manipulando a relação entrada/saída através da atuação sobre um ou mais dos seus parâmetros, com o objetivo de satisfazer certas especificações com relação a sua resposta (Ogata, 1993). Geralmente, existe uma ou mais variáveis que sofrem uma ação direta do controlador, denominadas variáveis manipuladas (MV, do inglês Manipulated Variable), alterando o comportamento do sistema para que sua resposta sofra as mudanças necessárias para satisfazer as especificações desejadas. As variáveis de saída, que correspondem à resposta do sistema, são denominadas variáveis controladas ou, no caso do controle de processos, variáveis de processo (PV, do inglês Process Variable). Para introduzirmos controladores em sistemas ou processos, do ponto de vista de equipamentos, precisamos de um dispositivo físico, podendo ser: eletrônico, elétrico, mecânico, pneumático, hidráulico ou combinações destes. Atualmente, os equipamentos utilizados para implementação de controladores são, predominantemente, eletrônicos, devido à facilidade de tratamento e manipulação dos sinais envolvidos neste tipo de equipamento. Circuitos eletrônicos, especialmente aqueles que contém microcontroladores ou microprocessadores, têm sido vastamente utilizados para implementação de leis de controle. Em aplicações industriais, os CLPs (Controladores Lógicos Programáveis) são o equipamento mais frequentemente utilizado. Contudo, quando utilizamos sistemas eletrônicos microcontrolados (ou microprocessados), além do equipamento físico em si, também precisamos programar o equipamento. Uma rotina, que implementa o algoritmo responsável por realizar os cálculos necessários para determinar como a variável manipulada deve ser alterada para que a resposta dos sistemas atenda às especificações de desempenho, comumente chamada de Lei de Controle, é parte fundamental do controlador. Muitas vezes, principalmente em grandes empresas, pessoas diferentes são responsáveis pela instalação física dos equipamentos e pela implementação lógica da lei de controle. Normalmente, cabe ao engenheiro de controle a determinação das estratégias de controle a serem usadas, bem como a proposição da lei de controle, incluindo o ajuste de seus parâmetros. Por isso mesmo, do ponto de vista do engenheiro de controle, ao se falar de controlador estamos nos referindo, frequentemente, às equações que definem a lei de controle. Neste contexto o controlador, ou lei de controle, mais utilizado em todo o mundo é aquele chamado de PID. Trata-se de um controlador que pode ser formado por diferentes combinações de 3 diferentes ações de controle: Ação Proporcional, Ação Integral (ou integrativa) e Ação Derivativa.
+\hspace{4ex}A introdução de um controlador em um determinado sistema visa a modificação de sua dinâmica, manipulando a relação entrada/saída através da atuação sobre um ou mais dos seus parâmetros, com o objetivo de satisfazer certas especificações com relação a sua resposta \cite{katsuhiko1993engineering}. Geralmente, existe uma ou mais variáveis que sofrem uma ação direta do controlador, denominadas variáveis manipuladas (MV, do inglês Manipulated Variable), alterando o comportamento do sistema para que sua resposta sofra as mudanças necessárias para satisfazer as especificações desejadas. As variáveis de saída, que correspondem à resposta do sistema, são denominadas variáveis controladas ou, no caso do controle de processos, variáveis de processo (PV, do inglês Process Variable). Para introduzirmos controladores em sistemas ou processos, do ponto de vista de equipamentos, precisamos de um dispositivo físico, podendo ser: eletrônico, elétrico, mecânico, pneumático, hidráulico ou combinações destes. Atualmente, os equipamentos utilizados para implementação de controladores são, predominantemente, eletrônicos, devido à facilidade de tratamento e manipulação dos sinais envolvidos neste tipo de equipamento. Circuitos eletrônicos, especialmente aqueles que contém microcontroladores ou microprocessadores, têm sido vastamente utilizados para implementação de leis de controle. Em aplicações industriais, os CLPs (Controladores Lógicos Programáveis) são o equipamento mais frequentemente utilizado. Contudo, quando utilizamos sistemas eletrônicos microcontrolados (ou microprocessados), além do equipamento físico em si, também precisamos programar o equipamento. Uma rotina, que implementa o algoritmo responsável por realizar os cálculos necessários para determinar como a variável manipulada deve ser alterada para que a resposta dos sistemas atenda às especificações de desempenho, comumente chamada de Lei de Controle, é parte fundamental do controlador. Muitas vezes, principalmente em grandes empresas, pessoas diferentes são responsáveis pela instalação física dos equipamentos e pela implementação lógica da lei de controle. Normalmente, cabe ao engenheiro de controle a determinação das estratégias de controle a serem usadas, bem como a proposição da lei de controle, incluindo o ajuste de seus parâmetros. Por isso mesmo, do ponto de vista do engenheiro de controle, ao se falar de controlador estamos nos referindo, frequentemente, às equações que definem a lei de controle. Neste contexto o controlador, ou lei de controle, mais utilizado em todo o mundo é aquele chamado de PID. Trata-se de um controlador que pode ser formado por diferentes combinações de 3 diferentes ações de controle: Ação Proporcional, Ação Integral (ou integrativa) e Ação Derivativa.
 
 %%%%%%%Segundo roteiro%%%%%%%%%
 
@@ -233,9 +236,6 @@ escrever introdução \cite{roteiro2021}
 
 \end{flushleft}
 
-
-
-
 \begin{figure}[h]
     \centering
     \includegraphics{images/1_relatorio/config_2.png}
@@ -243,8 +243,8 @@ escrever introdução \cite{roteiro2021}
     \label{fig:sistema_de_tanques_acoplados}
 \end{figure}
 
-\newpage
- \cite{scilab2010}   
+%\newpage
+%\cite{scilab2010}   
  
  
 % tem que explicar o que é  sistema dinâmico de tanques acoplados: explicado (copiado do roteiro)
@@ -260,7 +260,9 @@ escrever introdução \cite{roteiro2021}
 
 \section{REFERENCIAL TEÓRICO}
 
-\subsection{Controladores do tipo PID}
+\subsection{Controladores PID e Sistemas Dinâmicos de Primeira Ordem}
+%\subsection{Sistemas de Primeira Ordem}\hspace{4ex}
+
 \hspace{4ex}O controlador PID, na realidade, pode ser visto como sendo uma família de controladores. As 3 ações de controle podem ser combinadas de diferentes maneiras, formando controladores que podem receber diferentes nomes, como: P, PI, PD, PID, conforme as ações de controle são, ou não, utilizadas.
 
 \begin{enumerate}
@@ -321,31 +323,54 @@ escrever introdução \cite{roteiro2021}
                     \item Filtro da Ação Derivativa
                         \begin{figure}[h]
                             \centering
-                            \includegraphics{images/1_relatorio/config_2.png}
-                            \caption{Sistema de tanques Acoplados}
-                            \label{fig:sistema_de_tanques_acoplados}
-\end{figure}
+                            \includegraphics[width=15cm]{images/roteiro a/img ref teorico/filtro_de_acao_derivativa.png}
+                            \caption{Filtro de Ação derivativa}
+                            \label{fig:filtro_de_acao_derivativa}
+                        \end{figure}
                     \item PI-D
+                        \begin{figure}[h]
+                            \centering
+                            \includegraphics[width=15cm]{images/roteiro a/img ref teorico/pid.png}
+                            \caption{PI-D}
+                            \label{fig:pid}
+                        \end{figure}
+                        \begin{itemize}
+                            \item Objetivo: Não derivar variações bruscas no sinal de referência. 
+                        \end{itemize}
+                        \newpage
                     \item I-PD
-                \end{itemize}
+                         \begin{figure}[h]
+                            \centering
+                            \includegraphics[width=15cm]{images/roteiro a/img ref teorico/ipd.png}
+                            \caption{I-PD}
+                            \label{fig:ipd}
+                        \end{figure}
+                        \begin{itemize}
+                            \item Objetivo: Não derivar, nem amplificar variações bruscas no sinal de referência. 
+                            \\
+                        \end{itemize}
+                \end{itemize} 
             \item Modificação na Ação Integrativa:
                 \begin{itemize}
                     \item Filtro Anti-Windup (Anti-Reset Windup)
                 \end{itemize}
+                    \begin{figure}[h]
+                            \centering
+                            \includegraphics[width=15cm]{images/roteiro a/img ref teorico/filtro_anti_windup.png}
+                            \caption{Filtro Anti-Windup (Anti-Reset Windup)}
+                            \label{fig:filtro_anti_windup}
+                        \end{figure}
         \end{enumerate}
 \end{enumerate}
-
-\subsection{Sistemas de Primeira Ordem}\hspace{4ex}
+\newpage
 
 \subsection{Sistemas de Segunda Ordem}\hspace{4ex}
 
-
 \subsection{Sistemas de Segurança Instrumentados ou Intertravamentos}\hspace{4ex}
 
+\subsection{Sistemas Dinâmicos na Configuração de Controle em Cascata}\hspace{4ex}
+
 \newpage
-
-
-copiar do roteiro
 
 %%%%%%%%%% METODOLOGIA %%%%%%%%%%%%%%%
 
@@ -357,13 +382,51 @@ de fato escrever alguma coisa, como foi feita a simulação
 
 %%%%%%%%%% RESULTADOS %%%%%%%%%%%%%%%
 
+
+\newcommand{\labSubFigure}[4]{
+% o tipo do sistema 1 ou 2
+% tipo do controlador P
+% final do arquivo -> #3
+% titulo
+\ifnum#1=1
+    \def \roteiro {roteiro a}
+    \def \sistema {sistema tipo 1 }
+\fi
+\ifnum#1=2
+    \def \roteiro {roteiro b}
+    \def \sistema {sistema tipo 2 }
+\fi
+%
+\def \controlador{controlador #2}
+\def \ganho{#3.pdf}
+\def \caminhoImagem{images/\roteiro/\controlador/\ganho}
+%
+%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{\caminhoImagem}
+  \caption{\sistema $#4$}
+\end{subfigure}%
+}
+
 \thispagestyle{main}
 
 \section{RESULTADOS e DISCUSSÕES}\hspace{4ex}
 resultados obtidos do simulador e discutir eles
 explicar como essa seção foi dividida
 
+
+
 \subsection{Controlador P}\hspace{4ex}
+
+\begin{figure}[h]
+\labSubFigure{1}{P}{kp_5}{K_p=5}%1-1
+\labSubFigure{2}{P}{kp_20}{K_p=20}%2-2
+\labSubFigure{1}{P}{kp_20}{K_p=20}%1-3
+\labSubFigure{2}{P}{kp_10}{K_p=10}%2-1
+\labSubFigure{1}{P}{kp_10}{K_p=10}%1-2
+\labSubFigure{2}{P}{kp_100}{K_p=100}%2-3
+\end{figure}
 
 \subsection{Controlador PI}\hspace{4ex}
 
