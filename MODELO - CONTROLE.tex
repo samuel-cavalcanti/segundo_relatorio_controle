@@ -260,108 +260,108 @@ fluidos, sistemas de primeira ordem, sistemas de segunda ordem e controle em cas
 
 \section{REFERENCIAL TEÓRICO}
 
-\subsection{Controladores PID e Sistemas Dinâmicos de Primeira Ordem}
-%\subsection{Sistemas de Primeira Ordem}\hspace{4ex}
+% \subsection{Controladores PID e Sistemas Dinâmicos de Primeira Ordem}
+% %\subsection{Sistemas de Primeira Ordem}\hspace{4ex}
 
-\hspace{4ex}O controlador PID, na realidade, pode ser visto como sendo uma família de controladores. As 3 ações de controle podem ser combinadas de diferentes maneiras, formando controladores que podem receber diferentes nomes, como: P, PI, PD, PID, conforme as ações de controle são, ou não, utilizadas.
+% \hspace{4ex}O controlador PID, na realidade, pode ser visto como sendo uma família de controladores. As 3 ações de controle podem ser combinadas de diferentes maneiras, formando controladores que podem receber diferentes nomes, como: P, PI, PD, PID, conforme as ações de controle são, ou não, utilizadas.
 
-\begin{enumerate}
-    \item Controle Proporcional (P):
-    \[u(t)=Kpe(t)\] 
-    \[U(S)=KpE(S)\]
-        \begin{itemize}
-            \item O controlador proporcional é um amplificador, com ganho ajustável (K);
-            \item O aumento do ganho K, diminui o erro de regime;
-            \item Em geral, o aumento de K torna o sistema mais oscilatório, podendo instabilizá-lo;
-            \item Melhora o regime e piora o transitório, sendo bastante limitado.
-        \end{itemize}
+% \begin{enumerate}
+%     \item Controle Proporcional (P):
+%     \[u(t)=Kpe(t)\] 
+%     \[U(S)=KpE(S)\]
+%         \begin{itemize}
+%             \item O controlador proporcional é um amplificador, com ganho ajustável (K);
+%             \item O aumento do ganho K, diminui o erro de regime;
+%             \item Em geral, o aumento de K torna o sistema mais oscilatório, podendo instabilizá-lo;
+%             \item Melhora o regime e piora o transitório, sendo bastante limitado.
+%         \end{itemize}
         
-    \item Controle Proporcional + Integral (PI):
-    \[u(t)=Kp(e(t)+\frac{1}{\tau i}\int_{0}^{t}e(\tau)d\tau)\]
-    \[U(S)=\frac{(KpS+Ki)}{s}E(s)\]
-        \begin{itemize}
-            \item A ação integral do controlador move a variável de controle C(S) baseada na integral no tempo do erro, sendo: \[Ki=\frac{Kp}{\tau i}\], em que: \[\tau i\] é o tempo integrativo, ou tempo de \emph{reset}, com unidade da ordem de minutos;
-            \item Zera o erro de regime, pois aumenta o tipo do sistema em 1 unidade;
-            \item É utilizado quanto tempos resposta transitória aceitável e resposta em regime insatisfatória;
-            \item Adiciona um pólo em p=0 e um zero em \[z=\frac{ki}{kp}=\frac{-1}{\tau i}\]
-            \item Como aumenta a ordem do sistema, temos possibilidade de instabilidade diferente do sistema original. Pode degradar o desempenho do controlador em malha fechada.
-        \end{itemize}
+%     \item Controle Proporcional + Integral (PI):
+%     \[u(t)=Kp(e(t)+\frac{1}{\tau i}\int_{0}^{t}e(\tau)d\tau)\]
+%     \[U(S)=\frac{(KpS+Ki)}{s}E(s)\]
+%         \begin{itemize}
+%             \item A ação integral do controlador move a variável de controle C(S) baseada na integral no tempo do erro, sendo: \[Ki=\frac{Kp}{\tau i}\], em que: \[\tau i\] é o tempo integrativo, ou tempo de \emph{reset}, com unidade da ordem de minutos;
+%             \item Zera o erro de regime, pois aumenta o tipo do sistema em 1 unidade;
+%             \item É utilizado quanto tempos resposta transitória aceitável e resposta em regime insatisfatória;
+%             \item Adiciona um pólo em p=0 e um zero em \[z=\frac{ki}{kp}=\frac{-1}{\tau i}\]
+%             \item Como aumenta a ordem do sistema, temos possibilidade de instabilidade diferente do sistema original. Pode degradar o desempenho do controlador em malha fechada.
+%         \end{itemize}
         
-    \item Controle Proporcional + Derivativo (PD):
-        \[u(t)=Kp(e(t)+\tau d\frac{de(t)}{dt})\]
-        \[U(S)=(Kp+KdS)E(S)\]
-        \begin{itemize}
-            \item Sendo: \[Kd=Kp\tau d\] a constante derivativa, dada em minutos.
-            \item Leva em conta a taxa de variaçao do erro;
-            \item É utilizado quando temos resposta em regime aceitável e resposta transitória insatisfatória;
-            \item Adiciona um zero em \[z=\frac{-Kp}{Kd}=\frac{-1}{\tau d}\]
-            \item Introduz um efeito de antecipação no sistema, fazendo com que o mesmo reaja não somente à magnitude do sinal de erro, como também à sua tendência para o instante futuro, iniciando, assim, uma ação corretiva mais cedo;
-            \item A ação derivativa tem a desvantagem de amplificar os sinais de ruído, o que pode causar um efeito de saturação nos atuadores do sistema.
-        \end{itemize}
+%     \item Controle Proporcional + Derivativo (PD):
+%         \[u(t)=Kp(e(t)+\tau d\frac{de(t)}{dt})\]
+%         \[U(S)=(Kp+KdS)E(S)\]
+%         \begin{itemize}
+%             \item Sendo: \[Kd=Kp\tau d\] a constante derivativa, dada em minutos.
+%             \item Leva em conta a taxa de variaçao do erro;
+%             \item É utilizado quando temos resposta em regime aceitável e resposta transitória insatisfatória;
+%             \item Adiciona um zero em \[z=\frac{-Kp}{Kd}=\frac{-1}{\tau d}\]
+%             \item Introduz um efeito de antecipação no sistema, fazendo com que o mesmo reaja não somente à magnitude do sinal de erro, como também à sua tendência para o instante futuro, iniciando, assim, uma ação corretiva mais cedo;
+%             \item A ação derivativa tem a desvantagem de amplificar os sinais de ruído, o que pode causar um efeito de saturação nos atuadores do sistema.
+%         \end{itemize}
         
-    \item Controle Proporcional + Integral + Derivativo (PID):
-        \[u(t)=Kp(e(t)+\frac{1}{\tau i}\int_{0}^{t}e(\tau)d(\tau)+\tau d\frac{de(t)}{dt})\]
-        \[U(S)=(Kp+\frac{Ki}{s}+KdS)E(S) => \frac{U(S)}{E(S)}=\frac{KdS^2+KpS+Ki}{S}\]
-        \begin{itemize}
-                    \item É utilizado quando temos resposta transitória e em regime insatisfatórias simultaneamente;
-            \item Adiciona um pólo em p=0 e 2 zeros, que dependem dos parâmetros do controlador.
-        \end{itemize}
+%     \item Controle Proporcional + Integral + Derivativo (PID):
+%         \[u(t)=Kp(e(t)+\frac{1}{\tau i}\int_{0}^{t}e(\tau)d(\tau)+\tau d\frac{de(t)}{dt})\]
+%         \[U(S)=(Kp+\frac{Ki}{s}+KdS)E(S) => \frac{U(S)}{E(S)}=\frac{KdS^2+KpS+Ki}{S}\]
+%         \begin{itemize}
+%                     \item É utilizado quando temos resposta transitória e em regime insatisfatórias simultaneamente;
+%             \item Adiciona um pólo em p=0 e 2 zeros, que dependem dos parâmetros do controlador.
+%         \end{itemize}
         
-    \item Implementação do Controlador PID:
-        \begin{itemize}
-            \item Diferentes equipamentos, de diferentes fabricantes, podem apresentar pequenas variações quanto à implementação do controlador PID. As duas implementações mais comumente utilizadas são: \textbf{Ideal} e \textbf{Paralelo}.
-        \end{itemize}
+%     \item Implementação do Controlador PID:
+%         \begin{itemize}
+%             \item Diferentes equipamentos, de diferentes fabricantes, podem apresentar pequenas variações quanto à implementação do controlador PID. As duas implementações mais comumente utilizadas são: \textbf{Ideal} e \textbf{Paralelo}.
+%         \end{itemize}
         
-    \item Modificações das Ações de Controle PID:
-        \begin{itemize}
-            \item Existem também diversas modificações, que poderão ser necessárias em cada implementação, dependendo de características do sistema que estiver sendo controlado, das condições de operações as quais o sistema será submetido e, até mesmo, do equipamento que será utilizado para implementação do controlador.
-        \end{itemize}
+%     \item Modificações das Ações de Controle PID:
+%         \begin{itemize}
+%             \item Existem também diversas modificações, que poderão ser necessárias em cada implementação, dependendo de características do sistema que estiver sendo controlado, das condições de operações as quais o sistema será submetido e, até mesmo, do equipamento que será utilizado para implementação do controlador.
+%         \end{itemize}
         
-        \begin{enumerate}
-            \item Modificação na Ação Derivativa:
-                \begin{itemize}
-                    \item Filtro da Ação Derivativa
-                        \begin{figure}[h]
-                            \centering
-                            \includegraphics[width=15cm]{images/roteiro a/img ref teorico/filtro_de_acao_derivativa.png}
-                            \caption{Filtro de Ação derivativa}
-                            \label{fig:filtro_de_acao_derivativa}
-                        \end{figure}
-                    \item PI-D
-                        \begin{figure}[h]
-                            \centering
-                            \includegraphics[width=15cm]{images/roteiro a/img ref teorico/pid.png}
-                            \caption{PI-D}
-                            \label{fig:pid}
-                        \end{figure}
-                        \begin{itemize}
-                            \item Objetivo: Não derivar variações bruscas no sinal de referência. 
-                        \end{itemize}
-                        \newpage
-                    \item I-PD
-                         \begin{figure}[h]
-                            \centering
-                            \includegraphics[width=15cm]{images/roteiro a/img ref teorico/ipd.png}
-                            \caption{I-PD}
-                            \label{fig:ipd}
-                        \end{figure}
-                        \begin{itemize}
-                            \item Objetivo: Não derivar, nem amplificar variações bruscas no sinal de referência. 
-                            \\
-                        \end{itemize}
-                \end{itemize} 
-            \item Modificação na Ação Integrativa:
-                \begin{itemize}
-                    \item Filtro Anti-Windup (Anti-Reset Windup)
-                \end{itemize}
-                    \begin{figure}[h]
-                            \centering
-                            \includegraphics[width=15cm]{images/roteiro a/img ref teorico/filtro_anti_windup.png}
-                            \caption{Filtro Anti-Windup (Anti-Reset Windup)}
-                            \label{fig:filtro_anti_windup}
-                        \end{figure}
-        \end{enumerate}
-\end{enumerate}
+%         \begin{enumerate}
+%             \item Modificação na Ação Derivativa:
+%                 \begin{itemize}
+%                     \item Filtro da Ação Derivativa
+%                         \begin{figure}[h]
+%                             \centering
+%                             \includegraphics[width=15cm]{images/roteiro a/img ref teorico/filtro_de_acao_derivativa.png}
+%                             \caption{Filtro de Ação derivativa}
+%                             \label{fig:filtro_de_acao_derivativa}
+%                         \end{figure}
+%                     \item PI-D
+%                         \begin{figure}[h]
+%                             \centering
+%                             \includegraphics[width=15cm]{images/roteiro a/img ref teorico/pid.png}
+%                             \caption{PI-D}
+%                             \label{fig:pid}
+%                         \end{figure}
+%                         \begin{itemize}
+%                             \item Objetivo: Não derivar variações bruscas no sinal de referência. 
+%                         \end{itemize}
+%                         \newpage
+%                     \item I-PD
+%                          \begin{figure}[h]
+%                             \centering
+%                             \includegraphics[width=15cm]{images/roteiro a/img ref teorico/ipd.png}
+%                             \caption{I-PD}
+%                             \label{fig:ipd}
+%                         \end{figure}
+%                         \begin{itemize}
+%                             \item Objetivo: Não derivar, nem amplificar variações bruscas no sinal de referência. 
+%                             \\
+%                         \end{itemize}
+%                 \end{itemize} 
+%             \item Modificação na Ação Integrativa:
+%                 \begin{itemize}
+%                     \item Filtro Anti-Windup (Anti-Reset Windup)
+%                 \end{itemize}
+%                     \begin{figure}[h]
+%                             \centering
+%                             \includegraphics[width=15cm]{images/roteiro a/img ref teorico/filtro_anti_windup.png}
+%                             \caption{Filtro Anti-Windup (Anti-Reset Windup)}
+%                             \label{fig:filtro_anti_windup}
+%                         \end{figure}
+%         \end{enumerate}
+% \end{enumerate}
 \newpage
 
 \subsection{Sistemas de Segunda Ordem}\hspace{4ex}
@@ -421,16 +421,35 @@ explicar como essa seção foi dividida
 
 \begin{figure}[h]
 \labSubFigure{1}{P}{kp_5}{K_p=5}%1-1
-\labSubFigure{2}{P}{kp_20}{K_p=20}%2-2
-\labSubFigure{1}{P}{kp_20}{K_p=20}%1-3
 \labSubFigure{2}{P}{kp_10}{K_p=10}%2-1
 \labSubFigure{1}{P}{kp_10}{K_p=10}%1-2
+\labSubFigure{1}{P}{kp_20}{K_p=20}%1-3
+\labSubFigure{2}{P}{kp_20}{K_p=20}%2-2
 \labSubFigure{2}{P}{kp_100}{K_p=100}%2-3
 \end{figure}
 
 \subsection{Controlador PI}\hspace{4ex}
+\begin{figure}
+\labSubFigure{1}{PI}{kp_20_ki_0_5}{K_p=20 \quad K_i=0.5}%1-1
+\labSubFigure{2}{PI}{kp_20_ki_0_01}{K_p=20 \quad K_i=0.01}%2-1
+\labSubFigure{1}{PI}{kp_20_ki_5}{K_p=20 \quad K_i=5}%1-2
+\labSubFigure{1}{PI}{kp_20_ki_10}{K_p=20 \quad K_i=10}%1-3
+\labSubFigure{2}{PI}{kp_20_ki_0_5}{K_p=20 \quad K_i=0.5 }%2-2
+\labSubFigure{2}{PI}{kp_20_ki_0_005}{K_p=20 \quad K_i=0.005}%2-3
+\end{figure}
+
+
 
 \subsection{Controlador PD}\hspace{4ex}
+
+\begin{figure}
+\labSubFigure{1}{PD}{kp_20_ki_0_5}{K_p=20 \quad K_i=0.5}%1-1
+\labSubFigure{2}{PD}{kp_20_ki_0_01}{K_p=20 \quad K_i=0.01}%2-1
+\labSubFigure{1}{PD}{kp_20_ki_5}{K_p=20 \quad K_i=5}%1-2
+\labSubFigure{1}{PD}{kp_20_ki_10}{K_p=20 \quad K_i=10}%1-3
+\labSubFigure{2}{PD}{kp_20_ki_0_5}{K_p=20 \quad K_i=0.5 }%2-2
+\labSubFigure{2}{PD}{kp_20_ki_0_005}{K_p=20 \quad K_i=0.005}%2-3
+\end{figure}
 
 \subsection{Controlador PID}\hspace{4ex}
 
