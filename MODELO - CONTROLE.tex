@@ -220,8 +220,20 @@ fluidos, sistemas de primeira ordem, sistemas de segunda ordem e controle em cas
 escrever introdução \cite{roteiro2021}
 
 \begin{flushleft}
-\hspace{4ex}O livro Engenharia de Controle Moderno, \cite{kathushiko2011engenharia}, na análise e no projeto de sistemas de controle, devemos ter uma base de comparação do desempenho de vários sistemas de controle. Essa base pode ser estabelecida detalhando-se sinais de entrada de teste específicos e, em seguida, comparando-se as respostas dos vários sistemas com esses sinais. Para um sistema dinâmico real atingir os parâmetros desejados utilizamos os controladores automáticos ou simplesmente controladores. Segundo o \cite{kathushiko2011engenharia}, fala que um controlador automático compara o valor real de saída da planta com a entrada de referência (valor desejado), determina o desvio e produz um sinal de controle que reduzirá o desvio a zero ou a um valor pequeno. A maneira pela qual o controlador automático produz o sinal de controle é chamada ação de controle. O controlador será o dispositivo que irá controlar o sistema físico real. Mesmo com a possibilidade de melhorar os sistemas, alguns controladores necessitam de algum tipo de auxílio para garantir um melhor desempenho e logo se associam a filtros que permitam as devidas modificações desejadas para que os controladores possam aperfeiçoar o controle do sistema.  Vamos utilizar, nestes experimentos, um modelo computacional para analisar a influência dos controladores em um sistema dinâmico de controle de níveis de líquidos. Vamos verificar a influência dos controladores P, PI, PD e PID, e os filtros na ação derivativa e anti-windup para os controles de um sistema de primeira ordem, segunda ordem e o controle em cascata.
+%%%%%%% Primeiro roteiro%%%%%%%
+\hspace{4ex}A introdução de um controlador em um determinado sistema visa a modificação de sua dinâmica, manipulando a relação entrada/saída através da atuação sobre um ou mais dos seus parâmetros, com o objetivo de satisfazer certas especificações com relação a sua resposta (Ogata, 1993). Geralmente, existe uma ou mais variáveis que sofrem uma ação direta do controlador, denominadas variáveis manipuladas (MV, do inglês Manipulated Variable), alterando o comportamento do sistema para que sua resposta sofra as mudanças necessárias para satisfazer as especificações desejadas. As variáveis de saída, que correspondem à resposta do sistema, são denominadas variáveis controladas ou, no caso do controle de processos, variáveis de processo (PV, do inglês Process Variable). Para introduzirmos controladores em sistemas ou processos, do ponto de vista de equipamentos, precisamos de um dispositivo físico, podendo ser: eletrônico, elétrico, mecânico, pneumático, hidráulico ou combinações destes. Atualmente, os equipamentos utilizados para implementação de controladores são, predominantemente, eletrônicos, devido à facilidade de tratamento e manipulação dos sinais envolvidos neste tipo de equipamento. Circuitos eletrônicos, especialmente aqueles que contém microcontroladores ou microprocessadores, têm sido vastamente utilizados para implementação de leis de controle. Em aplicações industriais, os CLPs (Controladores Lógicos Programáveis) são o equipamento mais frequentemente utilizado. Contudo, quando utilizamos sistemas eletrônicos microcontrolados (ou microprocessados), além do equipamento físico em si, também precisamos programar o equipamento. Uma rotina, que implementa o algoritmo responsável por realizar os cálculos necessários para determinar como a variável manipulada deve ser alterada para que a resposta dos sistemas atenda às especificações de desempenho, comumente chamada de Lei de Controle, é parte fundamental do controlador. Muitas vezes, principalmente em grandes empresas, pessoas diferentes são responsáveis pela instalação física dos equipamentos e pela implementação lógica da lei de controle. Normalmente, cabe ao engenheiro de controle a determinação das estratégias de controle a serem usadas, bem como a proposição da lei de controle, incluindo o ajuste de seus parâmetros. Por isso mesmo, do ponto de vista do engenheiro de controle, ao se falar de controlador estamos nos referindo, frequentemente, às equações que definem a lei de controle. Neste contexto o controlador, ou lei de controle, mais utilizado em todo o mundo é aquele chamado de PID. Trata-se de um controlador que pode ser formado por diferentes combinações de 3 diferentes ações de controle: Ação Proporcional, Ação Integral (ou integrativa) e Ação Derivativa.
+
+%%%%%%%Segundo roteiro%%%%%%%%%
+
+\hspace{4ex}Um sistema de segunda ordem ideal apresenta dois polos e nenhum zero, podendo apresentar oscilações em sua resposta. Controlar sistemas assim pode ser bem mais desafiador que controlar sistema de primeira ordem, sendo fundamental que se realize uma boa análise dinâmica antes da sintonia do controlador.
+
+%%%%%%%%%%%%%terceiro roteiro%%%%%%%%
+
+\hspace{4ex}Os controladores PID convencionais correspondem a sistemas dinâmicos de uma entrada e uma saída (SISO). Quando usados na malha direta, entre um comparador e o sistema a ser controlado, estrutura muitas vezes chamada de controle em série, o PID recebe o sinal de erro de rastreamento da referência, calculado no comparador, e a partir deste erro determina o sinal de controle a ser enviado para o sistema (planta, ou processo). Normalmente, o sinal de controle é efetivamente aplicado no sistema por um atuador, que pode ser, por exemplo: uma válvula, um motor ou uma bomba, influenciando o comportamento do sistema para que este responda conforme especificações de desempenho determinadas a priori. Ou seja, para que a variável de interesse do sistema (variável de saída, resposta ou PV) Porém, existem situações nas quais, além da variável de interesse, pode existir uma outra variável fortemente relacionada com o comportamento do sistema. Por exemplo, no sistema de tanques acoplados de segunda ordem, a variável de interesse é o nível de líquido no tanque 2 e a variável manipulada é a tensão de entrada, que, após passar pelo módulo amplificador de potência, irá alimentar a bomba d`água. Porém, a água bombeada inicialmente altera o nível de líquido no tanque 1 e então, o nível de água no tanque 1 irá influenciar a vazão que verte para o tanque 2, alterando a variável de interesse do sistema. Então, podemos usar um controlador para, com base no erro de rastreamento do nível no tanque 2, determinar qual nível seria desejado que o tanque 1 apresentasse, gerando assim, na saída deste primeiro controlador um valor de referência (set point) para o nível de líquido no tanque 1. Com este valor e a leitura do nível de líquido no tanque 1 calculamos um novo erro de rastreamento e podemos usar um segundo controlador para determinar que tensão deve ser enviada ao sistema para que o tanque 1 atinja o nível determinado pelo primeiro controlador. Pois, se o tanque 1 estiver no nível determinado pelo primeiro controlador o nível do tanque dois deverá estar na referência desejada.
+
 \end{flushleft}
+
+
 
 
 \begin{figure}[h]
@@ -248,7 +260,80 @@ escrever introdução \cite{roteiro2021}
 
 \section{REFERENCIAL TEÓRICO}
 
-\subsection{Controladores do tipo PID}\hspace{4ex}
+\subsection{Controladores do tipo PID}
+\hspace{4ex}O controlador PID, na realidade, pode ser visto como sendo uma família de controladores. As 3 ações de controle podem ser combinadas de diferentes maneiras, formando controladores que podem receber diferentes nomes, como: P, PI, PD, PID, conforme as ações de controle são, ou não, utilizadas.
+
+\begin{enumerate}
+    \item Controle Proporcional (P):
+    \[u(t)=Kpe(t)\] 
+    \[U(S)=KpE(S)\]
+        \begin{itemize}
+            \item O controlador proporcional é um amplificador, com ganho ajustável (K);
+            \item O aumento do ganho K, diminui o erro de regime;
+            \item Em geral, o aumento de K torna o sistema mais oscilatório, podendo instabilizá-lo;
+            \item Melhora o regime e piora o transitório, sendo bastante limitado.
+        \end{itemize}
+        
+    \item Controle Proporcional + Integral (PI):
+    \[u(t)=Kp(e(t)+\frac{1}{\tau i}\int_{0}^{t}e(\tau)d\tau)\]
+    \[U(S)=\frac{(KpS+Ki)}{s}E(s)\]
+        \begin{itemize}
+            \item A ação integral do controlador move a variável de controle C(S) baseada na integral no tempo do erro, sendo: \[Ki=\frac{Kp}{\tau i}\], em que: \[\tau i\] é o tempo integrativo, ou tempo de \emph{reset}, com unidade da ordem de minutos;
+            \item Zera o erro de regime, pois aumenta o tipo do sistema em 1 unidade;
+            \item É utilizado quanto tempos resposta transitória aceitável e resposta em regime insatisfatória;
+            \item Adiciona um pólo em p=0 e um zero em \[z=\frac{ki}{kp}=\frac{-1}{\tau i}\]
+            \item Como aumenta a ordem do sistema, temos possibilidade de instabilidade diferente do sistema original. Pode degradar o desempenho do controlador em malha fechada.
+        \end{itemize}
+        
+    \item Controle Proporcional + Derivativo (PD):
+        \[u(t)=Kp(e(t)+\tau d\frac{de(t)}{dt})\]
+        \[U(S)=(Kp+KdS)E(S)\]
+        \begin{itemize}
+            \item Sendo: \[Kd=Kp\tau d\] a constante derivativa, dada em minutos.
+            \item Leva em conta a taxa de variaçao do erro;
+            \item É utilizado quando temos resposta em regime aceitável e resposta transitória insatisfatória;
+            \item Adiciona um zero em \[z=\frac{-Kp}{Kd}=\frac{-1}{\tau d}\]
+            \item Introduz um efeito de antecipação no sistema, fazendo com que o mesmo reaja não somente à magnitude do sinal de erro, como também à sua tendência para o instante futuro, iniciando, assim, uma ação corretiva mais cedo;
+            \item A ação derivativa tem a desvantagem de amplificar os sinais de ruído, o que pode causar um efeito de saturação nos atuadores do sistema.
+        \end{itemize}
+        
+    \item Controle Proporcional + Integral + Derivativo (PID):
+        \[u(t)=Kp(e(t)+\frac{1}{\tau i}\int_{0}^{t}e(\tau)d(\tau)+\tau d\frac{de(t)}{dt})\]
+        \[U(S)=(Kp+\frac{Ki}{s}+KdS)E(S) => \frac{U(S)}{E(S)}=\frac{KdS^2+KpS+Ki}{S}\]
+        \begin{itemize}
+                    \item É utilizado quando temos resposta transitória e em regime insatisfatórias simultaneamente;
+            \item Adiciona um pólo em p=0 e 2 zeros, que dependem dos parâmetros do controlador.
+        \end{itemize}
+        
+    \item Implementação do Controlador PID:
+        \begin{itemize}
+            \item Diferentes equipamentos, de diferentes fabricantes, podem apresentar pequenas variações quanto à implementação do controlador PID. As duas implementações mais comumente utilizadas são: \textbf{Ideal} e \textbf{Paralelo}.
+        \end{itemize}
+        
+    \item Modificações das Ações de Controle PID:
+        \begin{itemize}
+            \item Existem também diversas modificações, que poderão ser necessárias em cada implementação, dependendo de características do sistema que estiver sendo controlado, das condições de operações as quais o sistema será submetido e, até mesmo, do equipamento que será utilizado para implementação do controlador.
+        \end{itemize}
+        
+        \begin{enumerate}
+            \item Modificação na Ação Derivativa:
+                \begin{itemize}
+                    \item Filtro da Ação Derivativa
+                        \begin{figure}[h]
+                            \centering
+                            \includegraphics{images/1_relatorio/config_2.png}
+                            \caption{Sistema de tanques Acoplados}
+                            \label{fig:sistema_de_tanques_acoplados}
+\end{figure}
+                    \item PI-D
+                    \item I-PD
+                \end{itemize}
+            \item Modificação na Ação Integrativa:
+                \begin{itemize}
+                    \item Filtro Anti-Windup (Anti-Reset Windup)
+                \end{itemize}
+        \end{enumerate}
+\end{enumerate}
 
 \subsection{Sistemas de Primeira Ordem}\hspace{4ex}
 
