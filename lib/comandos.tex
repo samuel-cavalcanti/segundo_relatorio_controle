@@ -1,42 +1,87 @@
 % newcommand define novos comandos, que podem passar a ser usados da
 % mesma forma que os comandos LaTeX de base.
 
-% Implicação em fórmulas
-\newcommand{\implica}{\quad\Rightarrow\quad} %Meio de linha
-\newcommand{\implicafim}{\quad\Rightarrow}   %Fim de linha
-\newcommand{\tende}{\rightarrow}
-\newcommand{\BibTeX}{\textsc{B\hspace{-0.1em}i\hspace{-0.1em}b\hspace{-0.3em}}\TeX}
+% % Implicação em fórmulas
+% \newcommand{\implica}{\quad\Rightarrow\quad} %Meio de linha
+% \newcommand{\implicafim}{\quad\Rightarrow}   %Fim de linha
+% \newcommand{\tende}{\rightarrow}
+% \newcommand{\BibTeX}{\textsc{B\hspace{-0.1em}i\hspace{-0.1em}b\hspace{-0.3em}}\TeX}
 
-% Fração com parentesis
-\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+% % Fração com parentesis
+% \newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
 
-% Transformada de Laplace e transformada Z
-%\newcommand{\lapl}{\makebox[0cm][l]{\hspace{0.1em}\raisebox{0.25ex}{-}}\mathcal{L}}
-\newcommand{\lapl}{\pounds}
-\newcommand{\transfz}{\mathcal{Z}}
+% % Transformada de Laplace e transformada Z
+% %\newcommand{\lapl}{\makebox[0cm][l]{\hspace{0.1em}\raisebox{0.25ex}{-}}\mathcal{L}}
+% \newcommand{\lapl}{\pounds}
+% \newcommand{\transfz}{\mathcal{Z}}
 
-% Não aparecer o número na primeira página dos capítulos
-\newcommand{\mychapter}[1]{\chapter{#1}\thispagestyle{empty}}
+% % Não aparecer o número na primeira página dos capítulos
+% \newcommand{\mychapter}[1]{\chapter{#1}\thispagestyle{empty}}
 
-% Os capítulos sem número
-\newcommand{\mychapterast}[1]{\chapter*{#1}\thispagestyle{empty}
-\chaptermark{#1}
-\afterpage{\markboth{\uppercase{#1}}{\rightmark}}
-\markboth{\uppercase{#1}}{}
+% % Os capítulos sem número
+% \newcommand{\mychapterast}[1]{\chapter*{#1}\thispagestyle{empty}
+% \chaptermark{#1}
+% \afterpage{\markboth{\uppercase{#1}}{\rightmark}}
+% \markboth{\uppercase{#1}}{}
+% }
+
+% % Seções sem número
+% \newcommand{\mysectionast}[1]{\section*{#1}
+% \addcontentsline{toc}{section}{#1}
+% \markright{\uppercase{#1}}
+% }
+
+% % No tabularx, as celulas devem ser centradas verticalmente
+% \renewcommand{\tabularxcolumn}[1]{m{#1}}
+
+% % Células centralizadas horizontalmente no tabularx
+% \newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% %% Abrevia figuras e tabelas
+% %\def\figurename{Fig.}
+% %\def\tablename{Tab.}
+
+
+\newcommand{\labABSubFigure}[4]{
+% o tipo do sistema 1 ou 2
+% tipo do controlador P
+% final do arquivo -> #3
+% titulo
+\ifnum#1=1
+    \def \roteiro {roteiro a}
+    \def \sistema {sistema tipo 1 }
+\fi
+\ifnum#1=2
+    \def \roteiro {roteiro b}
+    \def \sistema {sistema tipo 2 }
+\fi
+%
+\def \controlador{controlador #2}
+\def \ganho{#3.pdf}
+\def \caminhoImagem{images/\roteiro/\controlador/\ganho}
+%
+%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{\caminhoImagem}
+  \caption{\sistema $#4$}
+\end{subfigure}%
 }
 
-% Seções sem número
-\newcommand{\mysectionast}[1]{\section*{#1}
-\addcontentsline{toc}{section}{#1}
-\markright{\uppercase{#1}}
+\newcommand{\labMasterSlaveSubFigure}[4]{
+% o tipo do sistema 1 ou 2
+% tipo do controlador P
+% final do arquivo -> #3
+% titulo
+\def \controladorMestre{controlador Mestre #1}
+\def \controladorEscravo{Controlador escravo #2}
+\def \ganho{#3.pdf}
+\def \caminhoImagem{images/roteiro c/\controladorMestre/\controladorEscravo/\ganho}
+%
+%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{\caminhoImagem}
+  \caption{\controladorEscravo \\\hspace{.5\textwidth} \tiny $#4$ }
+\end{subfigure}%
 }
-
-% No tabularx, as celulas devem ser centradas verticalmente
-\renewcommand{\tabularxcolumn}[1]{m{#1}}
-
-% Células centralizadas horizontalmente no tabularx
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-
-%% Abrevia figuras e tabelas
-%\def\figurename{Fig.}
-%\def\tablename{Tab.}
