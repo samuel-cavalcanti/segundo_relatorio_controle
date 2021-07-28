@@ -1,0 +1,291 @@
+\newcommand{\labABSubFigure}[4]{
+% o tipo do sistema 1 ou 2
+% tipo do controlador P
+% final do arquivo -> #3
+% titulo
+\ifnum#1=1
+    \def \roteiro {roteiro a}
+    \def \sistema {sistema tipo 1 }
+\fi
+\ifnum#1=2
+    \def \roteiro {roteiro b}
+    \def \sistema {sistema tipo 2 }
+\fi
+%
+\def \controlador{controlador #2}
+\def \ganho{#3.pdf}
+\def \caminhoImagem{images/\roteiro/\controlador/\ganho}
+%
+%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{\caminhoImagem}
+  \caption{\sistema $#4$}
+\end{subfigure}%
+}
+
+\newcommand{\labMasterSlaveSubFigure}[4]{
+% o tipo do sistema 1 ou 2
+% tipo do controlador P
+% final do arquivo -> #3
+% titulo
+\def \controladorMestre{controlador Mestre #1}
+\def \controladorEscravo{Controlador escravo #2}
+\def \ganho{#3.pdf}
+\def \caminhoImagem{images/roteiro c/\controladorMestre/\controladorEscravo/\ganho}
+%
+%
+\begin{subfigure}[b]{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{\caminhoImagem}
+  \caption{\controladorEscravo \\\hspace{.5\textwidth} $#4$}
+\end{subfigure}%
+}
+
+
+
+
+resultados obtidos do simulador e discutir eles
+explicar como essa seção foi dividida
+
+
+
+\subsection{Controlador P}\hspace{4ex}
+
+\begin{figure}[h]
+\labABSubFigure{1}{P}{kp_5}{K_p=5}%1-1
+\labABSubFigure{2}{P}{kp_10}{K_p=10}%2-1
+\labABSubFigure{1}{P}{kp_10}{K_p=10}%1-2
+\labABSubFigure{2}{P}{kp_20}{K_p=20}%2-2
+\labABSubFigure{1}{P}{kp_20}{K_p=20}%1-3
+\labABSubFigure{2}{P}{kp_100}{K_p=100}%2-3
+\end{figure}
+
+
+\newpage
+
+\subsection{Controlador PI}\hspace{4ex}
+\begin{figure}[h]
+\labABSubFigure{1}{PI}{kp_20_ki_0_5}{K_p=20 \quad K_i=0.5}%1-1
+\labABSubFigure{2}{PI}{kp_20_ki_0_01}{K_p=20 \quad K_i=0.01}%2-1
+\labABSubFigure{1}{PI}{kp_20_ki_5}{K_p=20 \quad K_i=5}%1-2
+\labABSubFigure{2}{PI}{kp_20_ki_0_5}{K_p=20 \quad K_i=0.5 }%2-2
+\labABSubFigure{1}{PI}{kp_20_ki_10}{K_p=20 \quad K_i=10}%1-3
+\labABSubFigure{2}{PI}{kp_20_ki_0_005}{K_p=20 \quad K_i=0.005}%2-3
+\end{figure}
+
+\newpage
+
+\subsection{Controlador PD}\hspace{4ex}
+
+\begin{figure}[h]
+\labABSubFigure{1}{PD}{kp_20_kd_1}{K_p=20 \quad K_d=1}%1-1
+\labABSubFigure{2}{PD}{kp_20_kd_1}{K_p=20 \quad K_d=1}%2-1
+\labABSubFigure{1}{PD}{kp_20_kd_5}{K_p=20 \quad K_d=5}%1-2
+\labABSubFigure{2}{PD}{kp_20_kd_15}{K_p=20 \quad K_d=15 }%2-2
+\labABSubFigure{1}{PD}{kp_20_kd_15}{K_p=20 \quad K_d=15}%1-3
+\labABSubFigure{2}{PD}{kp_20_kd_25}{K_p=20 \quad K_d=25}%2-3
+\end{figure}
+
+\newpage
+
+\subsection{Controlador PID}\hspace{4ex}
+\begin{figure}[h]
+\labABSubFigure{1}{PID}{kp_20_ki_0_5_kd_22}{K_p=20 \quad K_i=0.5 \quad K_d=22}%1-1
+\labABSubFigure{2}{PID}{kp_20_ki_1_kd_250}{K_p=20 \quad K_i=1 \quad K_d=250}%2-1
+\labABSubFigure{1}{PID}{kp_20_ki_1_kd_22}{K_p=20 \quad K_i=1 \quad K_d=22}%1-2
+\labABSubFigure{2}{PID}{kp_20_ki_1_kd_500}{K_p=20 \quad K_i=1 \quad K_d=500 }%2-2
+\labABSubFigure{1}{PID}{kp_20_ki_2_kd_22}{K_p=20 \quad K_i=2 \quad K_d=22}%1-3
+\labABSubFigure{2}{PID}{kp_20_ki_1_kd_1000}{K_p=20 \quad K_i=1 \quad K_d=100}%2-3
+\end{figure}
+
+\newpage
+
+\subsection{Controlador PID com filtro na ação derivativa}\hspace{4ex}
+
+\def \PIDDerivativeFilter{PID filtro derivativo}
+
+\begin{figure}[h]
+\labABSubFigure{1}{\PIDDerivativeFilter}{kp_20_ki_1_kd_1_kn_0_5}{K_p=20 \quad K_i=1 \quad K_d=1 \quad K_n=0.5}%1-1
+\labABSubFigure{2}{\PIDDerivativeFilter}{kp_20_ki_1_kd_1_kn_30}{K_p=20 \quad K_i=1 \quad K_d=1 \quad K_n=30}%2-1
+\labABSubFigure{1}{\PIDDerivativeFilter}{kp_20_ki_1_kd_1_kn_50}{K_p=20 \quad K_i=1 \quad K_d=1 \quad K_n=50}%1-2
+\labABSubFigure{2}{\PIDDerivativeFilter}{kp_20_ki_1_kd_1_kn_50}{K_p=20 \quad K_i=1 \quad K_d=1 \quad K_n=50}%2-2
+\labABSubFigure{1}{\PIDDerivativeFilter}{kp_20_ki_1_kd_1_kn_100}{K_p=20 \quad K_i=2 \quad K_d=1 \quad K_n=100}%1-3
+\labABSubFigure{2}{\PIDDerivativeFilter}{kp_20_ki_1_kd_1_kn_100}{K_p=20 \quad K_i=1 \quad K_d=1 \quad K_n=100}%2-3
+\end{figure}
+\newpage
+
+\subsection{Controlador PID com filtro anti-reset-windup}\hspace{4ex}
+
+\def \PIDFilter{PID filtro windup}
+
+\begin{figure}[h]
+\labABSubFigure{1}{\PIDFilter}{kp_0_5_ki_0_5_kd_0_05_kaw_0_5}{K_p=0.5 \quad K_i=0.5 \quad K_d=0.05 \quad K_{aw}=0.5}%1-1
+\labABSubFigure{2}{\PIDFilter}{kp_20_ki_1_kd_1_kaw_1}{K_p=20 \quad K_i=1 \quad K_d=1 \quad K_{aw}=1}%2-1
+\labABSubFigure{1}{\PIDFilter}{kp_0_5_ki_0_5_kd_0_05_kaw_1}{K_p=0.5 \quad K_i=0.5 \quad K_d=0.05 \quad K_{aw}=1}%1-2
+\labABSubFigure{2}{\PIDFilter}{kp_20_ki_1_kd_20_kaw_1}{K_p=20 \quad K_i=1 \quad K_d=20 \quad K_{aw}=1}%2-2
+\labABSubFigure{1}{\PIDFilter}{kp_0_5_ki_1_kd_0_05_kaw_0_5}{K_p=0.5 \quad K_i=1 \quad K_d=0.05 \quad K_{aw}=0.5}%1-3
+\labABSubFigure{2}{\PIDFilter}{kp_20_ki_5_kd_1_kaw_1}{K_p=20 \quad K_i=5 \quad K_d=1 \quad K_{aw}=1}%2-3
+\end{figure}
+\newpage
+%
+
+%
+\subsection{Sistema de Controle Mestre-Escravo: Mestre P}
+
+\subsubsection{Controlador Escravo P}
+\begin{figure}[h]
+\foreach \kp in {40,300,500}{
+ \labMasterSlaveSubFigure{P}{P}{kp_master_\kp_kp_slave_\kp}
+    {K_{p_{\small{mestre}}}=\kp \quad K_{p_{\small{escravo}}}=\kp }%
+}
+\end{figure}
+
+\newpage
+
+\subsubsection{Controlador Escravo PD}
+
+\begin{figure}[h]
+\foreach \kdSlave in {100,1000,1000}{
+    \labMasterSlaveSubFigure{P}{PD}{Kp_master_500_Kp_slave_500_Kd_slave_\kdSlave}
+    {K_{p_{\small{mestre}}}=500 \quad K_{p_{\small{escravo}}}=500%
+    \quad K_{d_{\small{escravo}}}=\kdSlave}%
+    }
+\end{figure}
+
+\newpage
+
+\subsubsection{Controlador Escravo PI}
+
+\begin{figure}[h]
+\foreach \kiSlave in {3,6,12}{
+    \labMasterSlaveSubFigure{P}{PI}{Kp_master_500_Kp_slave_500_Ki_slave_\kiSlave}
+    {K_{p_{\small{mestre}}}=500 \quad K_{p_{\small{escravo}}}=500%
+    \quad K_{i_{\small{escravo}}}=\kiSlave}%
+    }
+\end{figure}
+
+\newpage
+
+
+\subsubsection{Controlador Escravo PID}
+
+\begin{figure}[h]
+    \foreach \ki/\kd in {0.5/5000,1/300,3/300}{
+    \labMasterSlaveSubFigure{P}{PID}
+    {Kp_master_500_Kp_slave_500_Ki_slave_\ki_Kd_slave_\kd}
+    {K_{p_{\small{mestre}}}=500 \quad K_{p_{\small{escravo}}}=500%
+    \quad K_{i_{\small{escravo}}}=\ki \quad K_{d_{\small{escravo}}}=\kd}%
+    }
+
+\end{figure}
+
+\newpage
+
+\subsubsection{Controlador Escravo PID filtro derivativo}
+
+\begin{figure}[h]
+  \foreach \ki/\kd/\kn in {1/100/2,1/100/15,7/100/15}{
+      \labMasterSlaveSubFigure{P}{PID filtro derivativo}
+    {Kp_master_500_Kp_slave_500_Ki_slave_\ki_Kd_slave_\kd_Kn_slave_\kn}
+    {K_{p_{\small{mestre}}}=500 \quad K_{p_{\small{escravo}}}=500%
+    \quad K_{i_{\small{escravo}}}=\ki \quad K_{d_{\small{escravo}}}=\kd%
+    \quad K_{n_{\small{escravo}}}=\kn }
+    }
+\end{figure}
+
+
+\newpage
+
+\subsubsection{Controlador Escravo PID filtro windup}
+
+\begin{figure}[h]
+  \foreach \ki/\kd/\kaw in {100/100/1,300/100/2,2000/100/3}{
+      \labMasterSlaveSubFigure{P}{PID filtro windup}
+    {Kp_master_500_Kp_slave_500_Ki_slave_\ki_Kd_slave_\kd_Kaw_slave_\kaw}
+    {K_{p_{\small{mestre}}}=500 \quad K_{p_{\small{escravo}}}=500%
+    \quad K_{i_{\small{escravo}}}=\ki \quad K_{d_{\small{escravo}}}=\kd%
+    \quad K_{aw_{\small{escravo}}}=\kaw }
+    }
+\end{figure}
+%
+\newpage
+%
+\subsection{Sistema de Controle Mestre-Escravo: Mestre PD}
+
+\subsubsection{Controlador Escravo P}
+\begin{figure}[h]
+\foreach \kd in {500,1000,10000}{ %kp_master_500_kd_master_500_kp_slave_500
+ \labMasterSlaveSubFigure{PD}{P}{kp_master_500_kd_master_\kd_kp_slave_500}
+    {K_{p_{\small{mestre}}}=500 \quad K_{d_{\small{mestre}}}=\kd \quad K_{p_{\small{escravo}}}=500 }%
+}
+\end{figure}
+
+\newpage
+
+\subsubsection{Controlador Escravo PD}
+
+\begin{figure}[h]
+\foreach \kdMaster/\kdSlave in {1/1,1/100,5/100}{
+    \labMasterSlaveSubFigure{PD}{PD}
+    {Kp_master_500_Kd_master_\kdMaster_Kp_slave_500_Kd_slave_\kdSlave}
+    {K_{p_{\small{mestre}}}=500 \quad K_{d_{\small{mestre}}}=\kdMaster
+    \quad K_{p_{\small{escravo}}}=500 \quad K_{d_{\small{escravo}}}=\kdSlave}%
+    }
+\end{figure}
+
+\newpage
+
+\subsubsection{Controlador Escravo PI}
+
+\begin{figure}[h]
+\foreach \kdMaster/\kiSlave in {1/10,1/50,10000/10}{
+    \labMasterSlaveSubFigure{PD}{PI}
+    {Kp_master_500_Kd_master_\kdMaster_Kp_slave_500_Ki_slave_\kiSlave}
+    {K_{p_{\small{mestre}}}=500 \quad K_{d_{\small{mestre}}}=\kdMaster \quad K_{p_{\small{escravo}}}=500 \quad K_{i_{\small{escravo}}}=\kiSlave}%
+    }
+\end{figure}
+
+\newpage
+
+
+\subsubsection{Controlador Escravo PID}
+
+\begin{figure}[h]
+    \foreach \ki/\kd in {0.5/5000,1/300,3/300}{
+    \labMasterSlaveSubFigure{PD}{PID}
+    {Kp_master_500_Kd_master_1_kp_slave_500_ki_slave_10_kd_slave_500}
+    {K_{p_{\small{mestre}}}=500 \quad K_{p_{\small{escravo}}}=500%
+    \quad K_{i_{\small{escravo}}}=\ki \quad K_{d_{\small{escravo}}}=\kd}%
+    }
+
+\end{figure}
+
+\newpage
+
+\subsubsection{Controlador Escravo PID filtro derivativo}
+
+\begin{figure}[h]
+  \foreach \ki/\kd/\kn in {1/100/2,1/100/15,7/100/15}{
+      \labMasterSlaveSubFigure{P}{PID filtro derivativo}
+    {Kp_master_500_Kp_slave_500_Ki_slave_\ki_Kd_slave_\kd_Kn_slave_\kn}
+    {K_{p_{\small{mestre}}}=500 \quad K_{p_{\small{escravo}}}=500%
+    \quad K_{i_{\small{escravo}}}=\ki \quad K_{d_{\small{escravo}}}=\kd%
+    \quad K_{n_{\small{escravo}}}=\kn }
+    }
+\end{figure}
+
+
+\newpage
+
+\subsubsection{Controlador Escravo PID filtro windup}
+
+\begin{figure}[h]
+  \foreach \ki/\kd/\kaw in {100/100/1,300/100/2,2000/100/3}{
+      \labMasterSlaveSubFigure{P}{PID filtro windup}
+    {Kp_master_500_Kp_slave_500_Ki_slave_\ki_Kd_slave_\kd_Kaw_slave_\kaw}
+    {K_{p_{\small{mestre}}}=500 \quad K_{p_{\small{escravo}}}=500%
+    \quad K_{i_{\small{escravo}}}=\ki \quad K_{d_{\small{escravo}}}=\kd%
+    \quad K_{aw_{\small{escravo}}}=\kaw }
+    }
+\end{figure}
