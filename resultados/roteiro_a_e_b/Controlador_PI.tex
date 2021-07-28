@@ -1,0 +1,5 @@
+
+
+No sistema tipo 1, com a adição do controlador integral o sistema passa a ter comportamento de segunda ordem, subamortecido no exemplo, zerando o erro de regime observado anteriormente. No entanto, há bastante oscilação e o sistema é mais lento, chegando ao regime permanente em cerca de 3 vezes o tempo de sua contraparte apenas proporcional. Também há o custo do \emph{overshoot} de aproximadamente 36\% quando $K_i$ = 10, como observado.
+
+No sistema tipo 2, o erro de regime é automaticamente zerado, no entanto o intertravamento precisa agir mesmo para valores diminutos do ganho integral $K_i$ em 0.5, para que o tanque 1 não transborde (passe do nível 29). O efeito cumulativo da parcela integral do controlador, quando tem seu ganho aumentado, gera uma resposta mais oscilatória e com maior \emph{overshoot}, até que instabiliza o sistema em $K_i$ muito altos. Nesta situação o sistema continua a oscilar sem nunca chegar ao regime permanente em tempo plausível. Essa tendencia foi observada no experimento.
