@@ -1,7 +1,14 @@
 \include{lib/comandos}
 
-resultados obtidos do simulador e discutir eles
-explicar como essa seção foi dividida
+Primeiramente, houveram testes de controle de primeira ordem, para entrada constante de valor 15 e senoidal, de amplitude 2 e bias 10.
+
+Depois, testes de controle de segunda ordem, para entrada constante de valor 15. Foram implementados intertravamentos para evitar transbordamento dos tanques ou succionar água (tensão negativa) quando o nível do primeiro tanque estiver muito baixo ou desligar (\emph{shutdown}) o sistema caso haja uma ocorrência anormal.
+
+Testes de primeira e segunda ordem (sistemas 1 e 2) foram agrupados e discutidos em conjunto.
+
+Por fim foram realizados testes com o controlador em cascata (mestre-escravo) e foi discutido como este tipo de configuração influencia no desempenho do sistema, em comparação ao sistemas de tipo 2 discutido anteriormente.
+
+
 % 
 % 
 % 
