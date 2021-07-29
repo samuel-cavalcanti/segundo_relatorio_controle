@@ -1,6 +1,5 @@
 
 \subsection{Controladores PID e Sistemas Dinâmicos de Primeira Ordem}
-%\subsection{Sistemas de Primeira Ordem}\hspace{4ex}
 
 \hspace{4ex}O controlador PID, na realidade, pode ser visto como sendo uma família de controladores. As 3 ações de controle podem ser combinadas de diferentes maneiras, formando controladores que podem receber diferentes nomes, como: P, PI, PD, PID, conforme as ações de controle são, ou não, utilizadas.
 
@@ -133,16 +132,16 @@ Temos três casos:
 \hspace{4ex} \underline{Resposta ao Degrau Unitário}
 
 \begin{enumerate}
-    \item Caso subamortecido: 
-        \[c(t)=1-\frac{\exp^{-\epsilon\omega_n t}}{\sqrt{1-\epsilon^2}}\sin(\omega_d t+\tan^{-1}\frac{\sqrt{1-\epsilon^2}}{\epsilon})\]
+    \item Caso Subamortecido: 
+        \[c(t)=1-\frac{e^{-\epsilon\omega_n t}}{\sqrt{1-\epsilon^2}}\sin(\omega_d t+\tan^{-1}\frac{\sqrt{1-\epsilon^2}}{\epsilon})\]
 onde: \(\omega_d=\sqrt{1-\epsilon^2}\) é a frequência natural amortecida.
 \newline
 Se \(\epsilon=0\), então: \(c(t)=1-\cos\omega_n t\)
 
-    \item Caso Criticamente Amortecido: \(c(t)=1-\exp^{-\omega_n t}(1+\omega_n t)\)
+    \item Caso Criticamente Amortecido: \(c(t)=1-e^{-\omega_n t}(1+\omega_n t)\)
 
     \item Caso Sobreamortecido: 
-    \[c(t)=1+\frac{\omega_n}{2\sqrt{\epsilon^2 -1}}(\frac{\exp^{-S_1 t}}{S1}-\frac{\exp^{-S_2 t}}{S2})\]
+    \[c(t)=1+\frac{\omega_n}{2\sqrt{\epsilon^2 -1}}(\frac{e^{-S_1 t}}{S1}-\frac{e^{-S_2 t}}{S2})\]
 onde \(S_1=(\epsilon+\sqrt{\epsilon^2 -1})\omega_n\) e \(S_2=(\epsilon-\sqrt{\epsilon^2 -1})\omega_n\)
 \newline
 \end{enumerate}
@@ -168,24 +167,20 @@ onde \(S_1=(\epsilon+\sqrt{\epsilon^2 -1})\omega_n\) e \(S_2=(\epsilon-\sqrt{\ep
     \newline
     \item \underline{Máximo sobressinal (\textit{Overshoot})}, \textbf{\(M_p\)}: É o valor máximo de pico da curva de resposta medido a partir do valor final.
     \[M_p(\%)=\frac{c(t_p)-c(\infty))}{c(\infty)}x100\%\]
-    \[c(t_p)=1+\exp^-({\frac{\epsilon\pi}{\sqrt{1-\epsilon^2}}})\]
+    \[c(t_p)=1+e^-({\frac{\epsilon\pi}{\sqrt{1-\epsilon^2}}})\]
     Logo: \newline
     \[M_p(\%)=100e^-({\frac{\epsilon\pi}{\sqrt{1-\epsilon^2}}})\]
     OBS: O sobressinal máximo depende do valor do coeficiente de amortecimento \(\epsilon\).
     \newline
     \item \underline{Tempo de Acomodação (Estabilização), \(t_s\)}: É o tempo necessário para que a resposta alcance e permaneça dentro de uma faixa em torno do valor final. Esta faixa é especificada por uma porcentagem absoluta do valor final (2\% ou 5\%).
-    \[t_s=\frac{4}{\epsilon\omega_n} \hspace{4ex} (critério de 2\%)\]
-    \[t_s=\frac{3}{\epsilon\omega_n} \hspace{4ex} (critério de 5\%)\]
+    
+    \[t_s=\frac{4}{\epsilon\omega_n} \hspace{8ex} (criterio \hspace{1ex} de \hspace{1ex} 2\%)\]
+    
+    \[t_s=\frac{3}{\epsilon\omega_n} \hspace{8ex} (criterio \hspace{1ex} de \hspace{1ex} 5\%)\]
     
 OBS: As curvas e especificações calculadas são válidas somente para sistemas de 2ª ordem ideal, cuja função de transferência apresenta dois polos e nenhum zero.
     \[\frac{C(S)}{R(S)}=\frac{\omega_n^2}{S^2+2\epsilon\omega_nS+\omega_n^2)}\]
 \end{enumerate}
-
-
-
-
-
-
 
 \subsection{Sistemas de Segurança Instrumentados ou Intertravamentos}\hspace{4ex}
 
