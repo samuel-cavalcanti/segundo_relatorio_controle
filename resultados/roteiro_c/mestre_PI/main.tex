@@ -1,0 +1,164 @@
+\subsection{Sistema de Controle Mestre-Escravo: Mestre PI
+}
+%
+\def \currentMaster{PI}
+\def \currentSlave{escravo P}
+\def \masterSlaveCaption{Mestre \currentMaster - \currentSlave }
+\def \rootDir{mestre_PI}
+%
+\def \controllerPEvaluation{resultados/roteiro_c/\rootDir/Controlador_P}
+\def \controllerPDEvaluation{resultados/roteiro_c/\rootDir/Controlador_PD}
+\def \controllerPIEvaluation{resultados/roteiro_c/\rootDir/Controlador_PI}
+\def \controllerPIDEvaluation{resultados/roteiro_c/\rootDir/Controlador_PID}
+\def \controllerPIDDevvaluation{resultados/roteiro_c/\rootDir/Controlador_PID_filtro_dev}
+\def \controllerPIDWindupEvaluation{resultados/roteiro_c/\rootDir/Controlador_PID_filtro_windup}
+%
+%
+%
+%
+\subsubsection{Controlador Escravo P}
+\begin{figure}[h]
+    \labMasterSlaveSubFigure{PI}
+{P}
+{Kp_master_500_Ki_master_2_Kp_slave_500}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=2 \quad K_{p_{\textrm{escravo}}}=500}
+\labMasterSlaveSubFigure{PI}
+{P}
+{Kp_master_500_Ki_master_20_Kp_slave_500}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=20 \quad K_{p_{\textrm{escravo}}}=500}
+\labMasterSlaveSubFigure{PI}
+{P}
+{Kp_master_500_Ki_master_50_Kp_slave_500}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=50 \quad K_{p_{\textrm{escravo}}}=500}
+
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPEvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PD}
+%
+\subsubsection{Controlador Escravo PD}
+
+\begin{figure}[h]
+    \labMasterSlaveSubFigure{PI}
+{PD}
+{Kp_master_500_Ki_master_0_5_Kp_slave_500_Kd_slave_10000}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=0.5 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{d_{\textrm{escravo}}}=10000}
+\labMasterSlaveSubFigure{PI}
+{PD}
+{Kp_master_500_Ki_master_0_5_Kp_slave_500_Kd_slave_1000}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=0.5 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{d_{\textrm{escravo}}}=1000}
+\labMasterSlaveSubFigure{PI}
+{PD}
+{Kp_master_500_Ki_master_2_Kp_slave_500_Kd_slave_300}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=2 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{d_{\textrm{escravo}}}=300}
+
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPDEvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PI}
+%
+
+\subsubsection{Controlador Escravo PI}
+
+\begin{figure}[h]
+    \labMasterSlaveSubFigure{PI}
+{PI}
+{Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_0_5}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=0.5 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5}
+\labMasterSlaveSubFigure{PI}
+{PI}
+{Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_1}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=0.5 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=1}
+\labMasterSlaveSubFigure{PI}
+{PI}
+{Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_5}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=0.5 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=5}
+
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPIEvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PID}
+%
+
+
+\subsubsection{Controlador Escravo PID}
+
+\begin{figure}[h]
+    \labMasterSlaveSubFigure{PI}
+{PID}
+{Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_0_5_Kd_slave_10000}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=0.5 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=10000}
+\labMasterSlaveSubFigure{PI}
+{PID}
+{Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_0_5_Kd_slave_1000}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=0.5 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=1000}
+\labMasterSlaveSubFigure{PI}
+{PID}
+{Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_0_5_Kd_slave_500}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=0.5 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=500}
+
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPIDEvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PID filtro derivativo}
+%
+\subsubsection{Controlador Escravo PID filtro derivativo}
+
+\begin{figure}[h]
+    \labMasterSlaveSubFigure{PI}
+{PID filtro derivativo}
+{Kp_master_500_Ki_master_2_Kp_slave_500_Ki_slave_0_5_Kd_slave_10000_Kn_slave_1}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=2 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=10000 \quad K_{n_{\textrm{escravo}}}=1}
+\labMasterSlaveSubFigure{PI}
+{PID filtro derivativo}
+{Kp_master_500_Ki_master_2_Kp_slave_500_Ki_slave_0_5_Kd_slave_10000_Kn_slave_2}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=2 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=10000 \quad K_{n_{\textrm{escravo}}}=2}
+\labMasterSlaveSubFigure{PI}
+{PID filtro derivativo}
+{Kp_master_500_Ki_master_30_Kp_slave_500_Ki_slave_0_5_Kd_slave_10000_Kn_slave_4_5}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=30 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=10000 \quad K_{n_{\textrm{escravo}}}=4.5}
+
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+\input{\controllerPIDDevvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PID filtro windup}
+%
+\subsubsection{Controlador Escravo PID filtro windup}
+
+\begin{figure}[h]
+    \labMasterSlaveSubFigure{PI}
+{PID filtro windup}
+{Kp_master_500_Ki_master_200_Kp_slave_500_Ki_slave_0_5_Kd_slave_45_Kaw_slave_2}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=200 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=45 \quad K_{aw_{\textrm{escravo}}}=2}
+\labMasterSlaveSubFigure{PI}
+{PID filtro windup}
+{Kp_master_500_Ki_master_300_Kp_slave_500_Ki_slave_0_5_Kd_slave_45_Kaw_slave_2}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=300 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=45 \quad K_{aw_{\textrm{escravo}}}=2}
+\labMasterSlaveSubFigure{PI}
+{PID filtro windup}
+{Kp_master_500_Ki_master_300_Kp_slave_500_Ki_slave_0_5_Kd_slave_45_Kaw_slave_5}
+{K_{p_{\textrm{mestre}}}=500 \quad K_{i_{\textrm{mestre}}}=300 \quad K_{p_{\textrm{escravo}}}=500 \quad K_{i_{\textrm{escravo}}}=0.5 \quad K_{d_{\textrm{escravo}}}=45 \quad K_{aw_{\textrm{escravo}}}=5}
+
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPIDWindupEvaluation}

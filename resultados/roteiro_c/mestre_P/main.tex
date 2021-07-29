@@ -1,17 +1,24 @@
 \subsection{Sistema de Controle Mestre-Escravo: Mestre P}
 
+\def \currentMaster{Mestre P}
+\def \currentSlave{escravo P}
+\def \masterSlaveCaption{ \currentMaster - \currentSlave }
+
 \subsubsection{Controlador Escravo P}
 \begin{figure}[h]
 \foreach \kp in {40,300,500}{
  \labMasterSlaveSubFigure{P}{P}{kp_master_\kp_kp_slave_\kp}
     {K_{p_{\textrm{mestre}}}=\kp \quad K_{p_{\textrm{escravo}}}=\kp }%
 }
+\controllerCaption{1}{\masterSlaveCaption}
 \end{figure}
 
 \input{resultados/roteiro_c/mestre_P/Controlador_P}
 
 \newpage
-
+%
+\def \currentSlave{escravo PD}
+%
 \subsubsection{Controlador Escravo PD}
 
 \begin{figure}[h]
@@ -20,11 +27,16 @@
     {K_{p_{\textrm{mestre}}}=500 \quad K_{p_{\textrm{escravo}}}=500%
     \quad K_{d_{\textrm{escravo}}}=\kdSlave}%
     }
+    \controllerCaption{1}{\masterSlaveCaption}
 \end{figure}
 
 \input{resultados/roteiro_c/mestre_P/Controlador_PD}
 
 \newpage
+
+%
+\def \currentSlave{escravo PI}
+%
 
 \subsubsection{Controlador Escravo PI}
 
@@ -34,12 +46,15 @@
     {K_{p_{\textrm{mestre}}}=500 \quad K_{p_{\textrm{escravo}}}=500%
     \quad K_{i_{\textrm{escravo}}}=\kiSlave}%
     }
+    \controllerCaption{1}{\masterSlaveCaption}
 \end{figure}
 
 \input{resultados/roteiro_c/mestre_P/Controlador_PI}
 
 \newpage
-
+%
+\def \currentSlave{escravo PID}
+%
 
 \subsubsection{Controlador Escravo PID}
 
@@ -50,12 +65,15 @@
     {K_{p_{\textrm{mestre}}}=500 \quad K_{p_{\textrm{escravo}}}=500%
     \quad K_{i_{\textrm{escravo}}}=\ki \quad K_{d_{\textrm{escravo}}}=\kd}%
     }
+    \controllerCaption{1}{\masterSlaveCaption}
 \end{figure}
 
 \input{resultados/roteiro_c/mestre_P/Controlador_PID}
 
 \newpage
-
+%
+\def \currentSlave{escravo PID filtro derivativo}
+%
 \subsubsection{Controlador Escravo PID filtro derivativo}
 
 \begin{figure}[h]
@@ -66,12 +84,15 @@
     \quad K_{i_{\textrm{escravo}}}=\ki \quad K_{d_{\textrm{escravo}}}=\kd%
     \quad K_{n_{\textrm{escravo}}}=\kn }
     }
+    \controllerCaption{1}{\masterSlaveCaption}
 \end{figure}
 
 \input{resultados/roteiro_c/mestre_P/Controlador_PID_filtro_dev}
 
 \newpage
-
+%
+\def \currentSlave{escravo PID filtro windup}
+%
 \subsubsection{Controlador Escravo PID filtro windup}
 
 \begin{figure}[h]
@@ -82,6 +103,7 @@
     \quad K_{i_{\textrm{escravo}}}=\ki \quad K_{d_{\textrm{escravo}}}=\kd%
     \quad K_{aw_{\textrm{escravo}}}=\kaw }
     }
+    \controllerCaption{1}{\masterSlaveCaption}
 \end{figure}
 %
 \input{resultados/roteiro_c/mestre_P/Controlador_PID_filtro_windup}

@@ -1,0 +1,92 @@
+\subsection{Sistema de Controle Mestre-Escravo: Mestre %CURRENT_MASTER%
+}
+%
+\def \currentMaster{%CURRENT_MASTER%}
+\def \currentSlave{escravo P}
+\def \masterSlaveCaption{Mestre \currentMaster - \currentSlave }
+\def \rootDir{%MASTER_DIR%}
+%
+\def \controllerPEvaluation{resultados/roteiro_c/\rootDir/Controlador_P}
+\def \controllerPDEvaluation{resultados/roteiro_c/\rootDir/Controlador_PD}
+\def \controllerPIEvaluation{resultados/roteiro_c/\rootDir/Controlador_PI}
+\def \controllerPIDEvaluation{resultados/roteiro_c/\rootDir/Controlador_PID}
+\def \controllerPIDDevvaluation{resultados/roteiro_c/\rootDir/Controlador_PID_filtro_dev}
+\def \controllerPIDWindupEvaluation{resultados/roteiro_c/\rootDir/Controlador_PID_filtro_windup}
+%
+%
+%
+%
+\subsubsection{Controlador Escravo P}
+\begin{figure}[h]
+    %SLAVE_P_CONTROLLER_FIGURES%
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPEvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PD}
+%
+\subsubsection{Controlador Escravo PD}
+
+\begin{figure}[h]
+    %SLAVE_PD_CONTROLLER_FIGURES%
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPDEvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PI}
+%
+
+\subsubsection{Controlador Escravo PI}
+
+\begin{figure}[h]
+    %SLAVE_PI_CONTROLLER_FIGURES%
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPIEvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PID}
+%
+
+
+\subsubsection{Controlador Escravo PID}
+
+\begin{figure}[h]
+    %SLAVE_PID_CONTROLLER_FIGURES%
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPIDEvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PID filtro derivativo}
+%
+\subsubsection{Controlador Escravo PID filtro derivativo}
+
+\begin{figure}[h]
+    %SLAVE_DEV_PID_CONTROLLER_FIGURES%
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+\input{\controllerPIDDevvaluation}
+
+\newpage
+%
+\def \currentSlave{escravo PID filtro windup}
+%
+\subsubsection{Controlador Escravo PID filtro windup}
+
+\begin{figure}[h]
+    %SLAVE_WINDUP_PID_CONTROLLER_FIGURES%
+    \controllerCaption{1}{\masterSlaveCaption}
+\end{figure}
+
+\input{\controllerPIDWindupEvaluation}
