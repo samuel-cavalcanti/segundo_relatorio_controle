@@ -85,3 +85,17 @@
   \caption{\controladorEscravo \\\hspace{.5\textwidth} \tiny $#4$ }
 \end{subfigure}%
 }
+
+\newcommand{\controllerCaption}[2]{
+% o nome do  controlador #1
+% o tipo da entrada #2
+%
+\ifnum#1=1
+    \def \sinalReferencia{a entrada constante}
+\fi
+\ifnum#1=2
+    \def \sinalReferencia{a entrada senoidal}
+\fi
+%$
+  \caption{resposta do Controlador #2 \sinalReferencia}
+}
