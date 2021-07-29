@@ -191,8 +191,8 @@ Professor:  Fábio Meneghetti Ugulino de Araújo.
 
 \vspace{1cm}
 
-\textbf{Palavras-chave:} Simulação computacional, controle de nível, SCILAB, Xcos, sistemas dinâmicos, tanques acoplados, 
-fluidos, sistemas de primeira ordem, sistemas de segunda ordem e controle em cascata.
+\textbf{Palavras-chave:} Simulação computacional, controle de nível, sistemas dinâmicos,
+tanques acoplados, fluidos, sistemas de primeira ordem, sistemas de segunda ordem e controle em cascata.
 
 
 \newpage
@@ -265,7 +265,12 @@ fluidos, sistemas de primeira ordem, sistemas de segunda ordem e controle em cas
 \thispagestyle{main}
 
 \section{METODOLOGIA}\hspace{4ex}
-de fato escrever alguma coisa, como foi feita a simulação
+A atividade tem caráter experimental e abordagem analítica, com o objetivo de explorar diferentes configurações de controladores e evidenciar seu comportamento em regimes distintos. O método de pesquisa foi o bibliográfico, através do material referência indicado e também o disponibilizado pelo docente, e experimental.
+
+As simulações foram feitas com o uso do software Matlab e Simulink, versão 2019a. O relatório em geral foi dividido em três partes, onde se usaram três modificações de um sistema geral de controle. O primeiro implementando o controlador proporcional integral diferencial (PID) e seus filtros; o segundo o mesmo mas com dispositivo de intertravamentos, parando a simulação dado comportamento anômalo, e terceiro com sistema de controle em cascata (mestre-escravo).
+
+Os ganhos principais foram nomeados $K_p$ (proporcional), $K_i$ (integrativo), $K_d$ (derivativo), $K_n$ (ganho do filtro derivativo) e $K_aw$ (ganho do filtro \emph{anti-windup}). Estes ganhos foram dispostos em diversas configurações, e comparados por diferentes intervalos, para que se evidenciasse a reação do sistema em diferentes situações. Assim é possível intuir como modificá-lo para performar melhor em algum quesito ou como reduzir uma característica indesejada (\emph{e.g.} tempo de estabilização ou máximo sobressinal).
+
 \newpage
 
 %%%%%%%%%% RESULTADOS %%%%%%%%%%%%%%%
