@@ -1,7 +1,6 @@
-import os
 
 
-def load_tamplate(tamplate_path: str) -> str:
+def load_template(tamplate_path: str) -> str:
     try:
         with open(tamplate_path, 'r') as file:
             return file.read()
@@ -38,17 +37,17 @@ def build_controller_figures_tex(master_controller: str, slave_controller: str, 
         'MATH_CAPTION': 'None'
     }
 
-    renderized_tamplates = list()
-    load_figure_tamplate = load_tamplate('tamplates/load_figure_tampate.tex')
+    renderized_templates = list()
+    load_figure_template = load_template('tamplates/load_figure_tampate.tex')
 
     for figure_name, caption in zip(figure_names, captions):
         load_figure_tamplate_variables['FILE_NAME'] = figure_name
         load_figure_tamplate_variables['MATH_CAPTION'] = caption
 
-        renderized_tamplates += render_template(
-            load_figure_tamplate_variables, load_figure_tamplate) + '\n'
+        renderized_templates += render_template(
+            load_figure_tamplate_variables, load_figure_template) + '\n'
 
-    return ''.join(renderized_tamplates)
+    return ''.join(renderized_templates)
 
 
 def build_main_tex(master_controller, master_result_dir, p_controller_figures_name, p_controller_captions, pd_controller_figures_name, pd_controller_captions, pi_controller_figures_name, pi_controller_captions, pid_controller_figures_name, pid_controller_captions, dev_pid_controller_figures_name, dev_pid_controller_captions, windup_pid_controller_figures_name, windup_pid_controller_captions):
@@ -80,8 +79,8 @@ def build_main_tex(master_controller, master_result_dir, p_controller_figures_na
         'SLAVE_DEV_PID_CONTROLLER_FIGURES': dev_pid_controller_figures_tex,
         'SLAVE_WINDUP_PID_CONTROLLER_FIGURES': windup_pid_controller_figures_tex
     }
-    main_tamplate = load_tamplate('tamplates/main_tamplate.tex')
-    main_tex = render_template(main_tamplate_variables, main_tamplate)
+    main_template = load_template('tamplates/main_tamplate.tex')
+    main_tex = render_template(main_tamplate_variables, main_template)
     return main_tex
 
 
@@ -341,8 +340,8 @@ if __name__ == '__main__':
         'mestre_PID_filtro_derivativo'
     ]
 
-    main_tamplate = load_tamplate('tamplates/main_tamplate.tex')
-    load_figure_tamplate = load_tamplate('tamplates/load_figure_tampate.tex')
+    main_template = load_template('tamplates/main_tamplate.tex')
+    load_figure_template = load_template('tamplates/load_figure_tampate.tex')
     master_controller = 'PI'
 
     main_tamplate_variables = {
