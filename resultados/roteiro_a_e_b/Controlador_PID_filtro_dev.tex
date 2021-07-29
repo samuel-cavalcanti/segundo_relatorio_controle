@@ -1,3 +1,5 @@
-O controlador derivativo está suscetível a amplificar ruído de baixa amplitude e alta frequência, podendo comprometer o sistema. É possível criar um laço de realimentação com uma integral no retorno e ganho N, que age como um filtro passa-baixas, atenuando o efeito do ruído, como se pode observar ao comparar a amplitude de oscilações com e sem filtro.
+O controlador derivativo está suscetível a amplificar ruído de baixa amplitude e alta frequência, podendo comprometer o sistema. É possível criar um laço de realimentação com uma integral no retorno e ganho N, que age como um filtro passa-baixas, atenuando o efeito do ruído, como se pode observar ao comparar a amplitude de oscilações com e sem filtro. Para entrada senoidal no sistema tipo 1, o nível do primeiro tanque passou a seguir levemente o nível do segundo e diminuição  em 9\% do \emph{overshoot} em ao ajustar $K_n$ de 2 para 5.
 
 Em ambos sistemas observou-se eliminação do \emph{overshoot} e aumento no tempo de acomodação para valores altos de $K_n$ (notadamente $K_n$ $\geq$ 100). Além disso a onda passou a "deformar" já que nessa situação se coloca muito peso na resposta influenciada por ruído aleatório.
+
+No sistema do tipo 2 e entrada senoidal, o aumento de $K_n$ desloca a fase do nível do segundo tanque e "satura" o nível do primeiro em 4, como é observado em (f).
