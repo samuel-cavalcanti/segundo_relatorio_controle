@@ -139,7 +139,7 @@ TIAGO FELIPE DE SOUZA: 20190153105\\
 \end{center}
 \vspace{4.2cm}
 
-{\bf{\large {\centering Modelagem de Sistemas Dinâmicos - Simulação de um Sistema de Tanques Acoplados\\}}}
+{\bf{\large {\centering Controle PID de Sistemas Dinâmicos: Sistemas de Primeira Ordem, Segunda Ordem e Controle em Cascata\\}}}
 
 \vspace{4cm}
 
@@ -149,7 +149,7 @@ TIAGO FELIPE DE SOUZA: 20190153105\\
 
 Segundo Relatório Parcial apresentado à disciplina de
 Laboratório de Sistemas de Controle, correspondente à
-avaliação da 1º unidade do semestre 2021.1 do 7º período
+avaliação da 2º unidade do semestre 2021.1 do 7º período
 do curso de Engenharia de Computação e Automação da
 Universidade Federal do Rio Grande do Norte, sob
 orientação do {\bf Prof. Fábio Meneghetti Ugulino de
@@ -185,14 +185,13 @@ Professor:  Fábio Meneghetti Ugulino de Araújo.
 
 \begin{flushleft}
 
- \hspace{4ex}Este relatório tem por objetivo apresentar as informações e os resultados obtidos a partir de uma simulação computacional de controle de nível de líquidos com a utilização de microcomputadores para controle de sistemas dinâmicos. Os experimentos foram realizados num modelo computacional desenvolvido em Scilab/Xcos. Foi analisado o comportamento de um sistema composto por dois tanques, um reservatório, uma bomba d’água, tubos flexíveis para conexão e dessa forma realizar as configurações para os sistemas de controle. Primeiramente, implementamos diferentes controladores no tanque 1 a fim de verificar o comportamento do nível e estabilidade do tanque para cada sistema proposto e verificar os diferentes valores de ganho, analisado como um sistema de primeira ordem por ter como entrada uma vazão controlada diretamente pela tensão aplicada na bomba d'água. Logo após, realizamos as devidas mudanças nas configurações visando o controle do tanque 2, que foi analisado como um sistema de segunda ordem por sua entrada ser diretamente a vazão de saída do tanque 1 e que depende da vazão de entrada tanque 1 e que por sua vez é controlada pela tensão aplicada na bomba d'água.Para os casos dos sistemas de primeira e segunda ordem procuramos ajustar os ganhos nos controladores que permitissem o melhor controle do sistema de tanques. por fim, analisamos o sistema de controle em cascata no tanque 2, em que foi possível analisar diferentes combinações de controladores para ambas as malhas (Mestre-Escravo), e com as devidas alterações analisamos o comportamento do sistema para diferentes valores de ganho, como também as diferenças no comportamento com relação ao sistema de segunda ordem.
+ \hspace{4ex}Este relatório tem por objetivo apresentar as informações e os resultados obtidos a partir de uma simulação computacional de controle de nível de líquidos com a utilização de microcomputadores para controle de sistemas dinâmicos. Os experimentos foram realizados num modelo computacional desenvolvido em Matlab/Simulink versão 2019a. Foi analisado o comportamento de um sistema composto por dois tanques, um reservatório, uma bomba d’água, tubos flexíveis para conexão e dessa forma realizar as configurações para os sistemas de controle. Partindo da base PID (Proporcional integral diferencial), primeiramente foram implementados diferentes controladores (P, PD, PI, PID, PID com filtro derivativo e \emph{anti-windup}) com seus respectivos ganhos $K_p$ (proporcional), $K_i$ (integrativo), $K_d$ (derivativo), $K_n$ (ganho do filtro derivativo) e $K_aw$ (ganho do filtro \emph{anti-windup}),  a fim de verificar a resposta em nível do tanque 1 e sua estabilidade para cada sistema proposto. Além disso, testar com diferentes valores de ganho e analisar o sistema de primeira ordem com entrada uma vazão controlada diretamente pela tensão aplicada na bomba d'água, constante e senoidal. Logo após, partindo dos mesmos controladores, é alterada a variável de controle para o nível no tanque 2, sinalizando um sistema de segunda ordem por sua entrada ser diretamente a vazão de saída do tanque 1 que, por sua vez, depende da vazão de entrada neste tanque, que por fim é controlada pela tensão aplicada na bomba d'água. Para os casos dos sistemas de primeira e segunda ordem procuramos ajustar os ganhos nos controladores que permitissem o melhor controle do sistema de tanques. Foram observadas características, por exemplo, de aumento de \emph{overshoot} ao se elevar $K_i$ ou a redução na oscilação de resposta ao se aumentar $K_d$. Por fim, foi analisado o sistema de controle em cascata no tanque 2, onde foi possível explorar diferentes combinações de controladores para ambas as malhas (Mestre-Escravo), e com as devidas alterações foi estudado o comportamento do sistema para diferentes valores de ganho, como também as diferenças no comportamento com relação ao sistema de segunda ordem.
 
 \end{flushleft}
 
 \vspace{1cm}
 
-\textbf{Palavras-chave:} Simulação computacional, controle de nível, sistemas dinâmicos,
-tanques acoplados, fluidos, sistemas de primeira ordem, sistemas de segunda ordem e controle em cascata.
+\textbf{Palavras-chave:} Simulação computacional, controle de nível, fluidos, filtro derivativo, filtro \emph{anti-windup}, mestre-escravo, tanques acoplados.
 
 
 \newpage

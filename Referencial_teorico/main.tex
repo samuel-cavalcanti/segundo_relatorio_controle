@@ -185,12 +185,71 @@ OBS: As curvas e especificações calculadas são válidas somente para sistemas
 
 \subsection{Sistemas de Segurança Instrumentados ou Intertravamentos}
 
-\hspace{4ex}Intertravamento é definido como sendo o conjunto de passos, ou laços, na lógica da automação e controle, que devem existir para garantir a segurança de um equipamento, pessoa ou processo. Geralmente, se utilizam travas lógicas (software de automação e controle) ou físicas (equipamentos de segurança) para garantir esta segurança. \newline
+\hspace{4ex}Intertravamento é definido como sendo o conjunto de passos, ou laços, na lógica da automação e controle, que devem existir para garantir a segurança de um equipamento, pessoa ou processo. Geralmente, se utilizam travas lógicas (software de automação e controle) ou físicas (equipamentos de segurança) para garantir esta segurança.
+
 \hspace{4ex}Tais sistemas são utilizados para monitorar as condições de riscos, devem gerar alarmes e, se possível, colocar, automaticamente, a planta em uma condição segura ou mesmo realizar um desligamento de segurança (\textit{shutdown}) de todo o processo, ou parte dele. O objetivo principal é evitar acidentes, danos aos equipamentos, proteção da produção e da propriedade e mais do que isto, evitar riscos de vida ou danos à saúde pessoal. Deve-se ter de forma clara que nenhum sistema é totalmente imune a falhas, porém sempre deve proporcionar, mesmo em caso de falha, uma condição segura.\newline
 \hspace{4ex}Um sistema que garanta a operação segura do sistema de tanques acoplados deve levar em consideração, pelo menos, as seguintes regras:
 \begin{itemize}
     \item Não deve ser enviada para o sistema uma tensão fora dos limites de \(\pm\)4 volts;
-    \item A bomba não pode tentar sorver água
+    \item A bomba não pode tentar sorver água (receber uma tenção negativa) quando o nível de líquido no tanque 1 estiver muita baixo (próximo de 0,00 cm ou abaixo da ponta da mangueira de alimentação);
+    \item Nenhum dos dois tanques pode transbordar.
 \end{itemize}
 
-\subsection{Sistemas Dinâmicos na Configuração de Controle em Cascata}\hspace{4ex}
+\textit{Obs.1: Em operação normal, com orifício médio na saída de ambos os tanques, o tanque 2 não transborda se o tanque 1 não encher além dos 30cm.} \newline
+
+\textit{Obs.2: Existe um valor específico de tensão que mantém, em regime, o nível do tanque 1 em cada valor de altura desejado.} \newline
+
+\textit{Obs.3: O desligamento de segurança (shutdown) só deve ocorrer quando detectado uma condição anormal de operação.} \newline
+
+\hspace{4ex} Uma possível lógica de intertravamentos pode ser vista no diagrama de blocos da seguinte figura:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{images/roteiro b/img ref teorico/diagrama_de_blocos_intertravamentos.PNG}
+    \caption{Diagrama de Blocos - Sistema de Intertravamentos}
+    \label{fig:diagrama_de_blocos}
+\end{figure}
+
+\newpage
+
+\subsection{Sistemas Dinâmicos na Configuração de Controle em Cascata}
+
+\hspace{4ex}Então, manipulando-se a tensão enviada para a bomba, pode-se obter um nível desejado para o liquido
+no tanque 1. Por sua vez, o nível de liquido no tanque 1 influencia na vazão de saída deste, que corresponde a
+vazão de entrada do tanque 2, influenciando assim no nível de liquido no tanque 2, que é justamente a variável
+que desejamos controlar. Sendo assim, temos inicialmente a seguinte estrutura de controle:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{images/roteiro c/img ref teorico/tanque_config_2.PNG}
+    \caption{Sistemas de Tanques na Configuração 2, com uma Única Malha de Controle.}
+    \label{fig:tanque_config_2l}
+\end{figure}
+
+\hspace{4ex}Sabendo-se que, manipulando o nível de liquido no tanque 1 \((L_1)\) pode-se controlar o nível de liquido
+no tanque 2 \((L_2)\), a ideia é que tenhamos uma \textbf{\underline{malha externa (mestre) de controle}} que a partir do erro entre
+a referência desejada e o nível obtido no tanque 2 \((e_x=r-L_2)\) forneça um valor ideal para o nível do tanque 1
+\((L_1{}_d.)\) que levaria o nível no tanque 2, da forma mais satisfatória possível, para o valor desejado (r). Contudo,
+para que o nível no tanque 1 atingisse, também de forma satisfatória, o nível indicado como ideal pelo
+controlador da malha externa, utilizaria-se um outro controlador, formando assim uma \textbf{\underline{malha interna (escrava) de controle}}. O controlador da malha interna tem a incumbência de, a partir do erro entre o nível
+indicado pelo controlador externo para o tanque 1 e nível medido \((e_i=L_1{}_d-L_1)\) determinar o valor da tensão
+a ser enviado para bomba \((V_P)\). Desta forma, passamos a ter uma estrutura de controle com duas malhas:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{images/roteiro c/img ref teorico/config2_controle_cascata.PNG}
+    \caption{Sistemas de Tanques na Configuração 2, com Controle em Cascata}
+    \label{fig:config2_controle_cascata}
+\end{figure}
+
+\newpage
+
+\hspace{4ex}Desta forma, é possível utilizar duas malhas de controle (dois controladores) com o objetivo de melhorar o desempenho do sistema.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=18cm]{images/roteiro c/img ref teorico/controle_cascata.PNG}
+    \caption{Controle Cascata do Sistema de Tanques Acoplados}
+    \label{fig:controle_cascata}
+\end{figure}
+
