@@ -1,0 +1,64 @@
+{
+    "master_controller": "PI",
+    "master_dir": "mestre_PI",
+    "p_controller_figures_name": [
+        "Kp_master_500_Ki_master_2_Kp_slave_500",
+        "Kp_master_500_Ki_master_20_Kp_slave_500",
+        "Kp_master_500_Ki_master_50_Kp_slave_500"
+    ],
+    "p_controller_captions": [
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=2 \\quad K_{p_{\\textrm{escravo}}}=500",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=20 \\quad K_{p_{\\textrm{escravo}}}=500",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=50 \\quad K_{p_{\\textrm{escravo}}}=500"
+    ],
+    "pd_controller_figures_name": [
+        "Kp_master_500_Ki_master_0_5_Kp_slave_500_Kd_slave_10000",
+        "Kp_master_500_Ki_master_0_5_Kp_slave_500_Kd_slave_1000",
+        "Kp_master_500_Ki_master_2_Kp_slave_500_Kd_slave_300"
+    ],
+    "pd_controller_captions": [
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=0.5 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{d_{\\textrm{escravo}}}=10000",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=0.5 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{d_{\\textrm{escravo}}}=1000",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=2 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{d_{\\textrm{escravo}}}=300"
+    ],
+    "pi_controller_figures_name": [
+        "Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_0_5",
+        "Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_1",
+        "Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_5"
+    ],
+    "pi_controller_captions": [
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=0.5 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=0.5 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=1",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=0.5 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=5"
+    ],
+    "pid_controller_figures_name": [
+        "Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_0_5_Kd_slave_10000",
+        "Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_0_5_Kd_slave_1000",
+        "Kp_master_500_Ki_master_0_5_Kp_slave_500_Ki_slave_0_5_Kd_slave_500"
+    ],
+    "pid_controller_captions": [
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=0.5 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=10000",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=0.5 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=1000",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=0.5 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=500"
+    ],
+    "dev_pid_controller_figures_name": [
+        "Kp_master_500_Ki_master_2_Kp_slave_500_Ki_slave_0_5_Kd_slave_10000_Kn_slave_1",
+        "Kp_master_500_Ki_master_2_Kp_slave_500_Ki_slave_0_5_Kd_slave_10000_Kn_slave_2",
+        "Kp_master_500_Ki_master_30_Kp_slave_500_Ki_slave_0_5_Kd_slave_10000_Kn_slave_4_5"
+    ],
+    "dev_pid_controller_captions": [
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=2 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=10000 \\quad K_{n_{\\textrm{escravo}}}=1",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=2 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=10000 \\quad K_{n_{\\textrm{escravo}}}=2",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=30 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=10000 \\quad K_{n_{\\textrm{escravo}}}=4.5"
+    ],
+    "windup_pid_controller_figures_name": [
+        "Kp_master_500_Ki_master_200_Kp_slave_500_Ki_slave_0_5_Kd_slave_45_Kaw_slave_2",
+        "Kp_master_500_Ki_master_300_Kp_slave_500_Ki_slave_0_5_Kd_slave_45_Kaw_slave_2",
+        "Kp_master_500_Ki_master_300_Kp_slave_500_Ki_slave_0_5_Kd_slave_45_Kaw_slave_5"
+    ],
+    "windup_pid_controller_captions": [
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=200 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=45 \\quad K_{aw_{\\textrm{escravo}}}=2",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=300 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=45 \\quad K_{aw_{\\textrm{escravo}}}=2",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=300 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{i_{\\textrm{escravo}}}=0.5 \\quad K_{d_{\\textrm{escravo}}}=45 \\quad K_{aw_{\\textrm{escravo}}}=5"
+    ]
+}
