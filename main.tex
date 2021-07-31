@@ -29,7 +29,7 @@
 \fancyfoot[CO]{}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 % \usepackage{subfig}
@@ -42,7 +42,7 @@
 \usepackage[abbr]{lib/harvard}
 \usepackage[breaklinks,hidelinks]{hyperref}
 \usepackage[all]{hypcap}
-
+\usepackage{subcaption}
 \usepackage{filecontents}
 \usepackage{tikz}
 
@@ -288,8 +288,11 @@ Os ganhos principais foram nomeados $K_p$ (proporcional), $K_i$ (integrativo), $
 \thispagestyle{main}
 
 \section{CONCLUSÃO}\hspace{4ex}
-O que podemos de fato concluir
-
+Como podemos observar sistemas P.I.D possuí uma grande quantidade de soluções possíveis, no entanto a médida que vai adicionando mais
+componentes derivativos, integrativos ou criando sistemas mais complexos como mestre-escravo, começamos a sentir um certa dificuldade de entender
+o quanto um componente de fato influência no controle do sistema, como no sistema mestre PID escravo PID que existem no mínimo duas constantes
+que na prática influênciam principalmente nos mesmos pré-requisitos como overshooting e tempo de regime transitório. É sempre interessante
+manter um sistema simples para que seja fácil prestar manutenção ao mesmo tempo complexo o suficiente para atender os seus requisitos. 
 \newpage
 
 %%%%%%%% REFERÊNCIAS %%%%%%%%%%%%%%%%%

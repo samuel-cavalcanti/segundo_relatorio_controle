@@ -1,6 +1,6 @@
 \subsection{Controlador P}\hspace{4ex}
-
-\begin{figure}[h]
+%
+\begin{figure}[H]
     \foreach \kpSystemOne/\kpSystemTwo in {5/10,10/20,20/100}{
         \labABSubFigure{1}{P}{kp_\kpSystemOne}{K_p=\kpSystemOne}%1-1
         \labABSubFigure{2}{P}{kp_\kpSystemTwo}{K_p=\kpSystemTwo}%2-1
@@ -8,17 +8,14 @@
   \controllerCaption{1}{P}
 \end{figure}
 
-\newpage
-
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kpSystemOne/\kpSystemTwo in {5/10,20/500,100/5000}{
         \labABSubFigure{1}{P}{senoidal_kp_\kpSystemOne}{K_p=\kpSystemOne}%1-1
         \labABSubFigure{2}{P}{senoidal_kp_\kpSystemTwo}{K_p=\kpSystemTwo}%2-1
     }
     \controllerCaption{2}{P}
 \end{figure}
-
-\hspace{4ex}
+%
 \input{resultados/roteiro_a_e_b/Controlador_P}
 
 
