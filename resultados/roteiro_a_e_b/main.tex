@@ -1,6 +1,6 @@
-\subsection{Controlador P}\hspace{4ex}
+\subsection{Controlador P}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kpSystemOne/\kpSystemTwo in {5/10,10/20,20/100}{
         \labABSubFigure{1}{P}{kp_\kpSystemOne}{K_p=\kpSystemOne}%1-1
         \labABSubFigure{2}{P}{kp_\kpSystemTwo}{K_p=\kpSystemTwo}%2-1
@@ -10,7 +10,7 @@
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kpSystemOne/\kpSystemTwo in {5/10,20/500,100/5000}{
         \labABSubFigure{1}{P}{senoidal_kp_\kpSystemOne}{K_p=\kpSystemOne}%1-1
         \labABSubFigure{2}{P}{senoidal_kp_\kpSystemTwo}{K_p=\kpSystemTwo}%2-1
@@ -25,7 +25,7 @@
 \newpage
 
 \subsection{Controlador PI}\hspace{4ex}
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kiSystemOne/\kiSystemTwo in {0.5/0.01,5/0.5,10/0.005}{
         \labABSubFigure{1}{PI}{kp_20_ki_\kiSystemOne}{K_p=20 \quad K_i=\kiSystemOne}%1-1
         \labABSubFigure{2}{PI}{kp_20_ki_\kiSystemTwo}{K_p=20 \quad K_i=\kiSystemTwo}%2-1
@@ -36,7 +36,7 @@
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kiSystemOne/\kiSystemTwo in {0.01/0.01,0.5/1,1/25}{
         \labABSubFigure{1}{PI}{senoidal_kp_20_ki_\kiSystemOne}{K_p=20 \quad  K_i=\kiSystemOne}%1-1
         \labABSubFigure{2}{PI}{senoidal_kp_500_ki_\kiSystemTwo}{K_p=500 \quad K_i=\kiSystemTwo}%2-1
@@ -51,7 +51,7 @@
 
 \subsection{Controlador PD}\hspace{4ex}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kdSystemOne/\kdSystemTwo in {1/1,5/15,15/25}{
         \labABSubFigure{1}{PD}{kp_20_kd_\kdSystemOne}{K_p=20 \quad K_d=\kdSystemOne}%1-1
         \labABSubFigure{2}{PD}{kp_20_kd_\kdSystemTwo}{K_p=20 \quad K_d=\kdSystemTwo}%2-1
@@ -62,7 +62,7 @@
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kpSystemOne/\kdSystemOne/\kpSystemTwo/\kdSystemTwo in {20/5/500/1,20/20/500/700,100/100/500/5000}{
         \labABSubFigure{1}{PD}{senoidal_kp_\kpSystemOne_kd_\kdSystemOne}{K_p = \kpSystemOne  \quad  K_d=\kdSystemOne}%1-1
         \labABSubFigure{2}{PD}{senoidal_kp_\kpSystemTwo_kd_\kdSystemTwo}{K_p = \kpSystemTwo  \quad K_d=\kdSystemTwo}%2-1
@@ -77,7 +77,7 @@
 \newpage
 
 \subsection{Controlador PID}\hspace{4ex}
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kiSystemOne/\kdSystemOne/\kiSystemTwo/\kdSystemTwo in {0.5/22/1/250,1/22/1/500,2/22/1/1000}{
         \labABSubFigure{1}{PID}{kp_20_ki_\kiSystemOne_kd_\kdSystemOne}
         {K_p=20 \quad K_i=\kiSystemOne \quad K_d=\kdSystemOne}%1-1
@@ -90,7 +90,7 @@
 %
 \newpage
 %
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \kiSystemOne/\kdSystemOne/\kiSystemTwo/\kdSystemTwo in {1/5/1/500,1/10/1/700,1/15/25/500}{
         \labABSubFigure{1}{PID}
         {senoidal_kp_20_ki_\kiSystemOne_kd_\kdSystemOne}
@@ -112,7 +112,7 @@
 
 \def \PIDDerivativeFilter{PID filtro derivativo}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach \knSystemOne/\knSystemTwo in {0.5/30,50/50,100/100}{
         \labABSubFigure{1}{\PIDDerivativeFilter}
         {kp_20_ki_1_kd_1_kn_\knSystemOne}
@@ -127,7 +127,7 @@
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[H]
     \foreach  \kdSystemOne/\knSystemOne/\kdSystemTwo/\knSystemTwo in {8/2/700/1,8/5/700/3,10/2/700/5}{
         \labABSubFigure{1}{\PIDDerivativeFilter}
         {senoidal_kp_20_ki_1_kd_\kdSystemOne_kn_\knSystemOne}
@@ -149,7 +149,7 @@
 
 \def \PIDFilter{PID filtro windup}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \labABSubFigure{1}{\PIDFilter}{kp_0_5_ki_0_5_kd_0_05_kaw_0_5}{K_p=0.5 \quad K_i=0.5 \quad K_d=0.05 \quad K_{aw}=0.5}%1-1
 \labABSubFigure{2}{\PIDFilter}{kp_20_ki_1_kd_1_kaw_1}{K_p=20 \quad K_i=1 \quad K_d=1 \quad K_{aw}=1}%2-1
 \labABSubFigure{1}{\PIDFilter}{kp_0_5_ki_0_5_kd_0_05_kaw_1}{K_p=0.5 \quad K_i=0.5 \quad K_d=0.05 \quad K_{aw}=1}%1-2
@@ -161,7 +161,7 @@
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[H]
     \labABSubFigure{1}{\PIDFilter}{senoidal_kp_20_ki_1_kd_10_kaw_0.001}{K_p=20 \quad K_i=1 \quad K_d=10 \quad K_{aw}=0.001}%1-1
     \labABSubFigure{2}{\PIDFilter}{senoidal_kp_500_ki_1_kd_700_kaw_0.01}{K_p=500 \quad K_i=1 \quad K_d=700 \quad K_{aw}=0.01}%2-1
     \labABSubFigure{1}{\PIDFilter}{senoidal_kp_20_ki_2_kd_10_kaw_0.01}{K_p=20 \quad K_i=2 \quad K_d=10 \quad K_{aw}=0.01}%1-2
