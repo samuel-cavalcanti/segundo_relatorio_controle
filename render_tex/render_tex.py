@@ -101,7 +101,7 @@ def build_controller_tex_from_json(json_file_name: str):
 
 if __name__ == '__main__':
     # build_controller_tex_from_json('pi_controller.json')
-    # build_controller_tex_from_json('pid_controller.json')
+    build_controller_tex_from_json('pid_controller.json')
     # build_controller_tex_from_json('dev_pid_controller.json')
 
     pass

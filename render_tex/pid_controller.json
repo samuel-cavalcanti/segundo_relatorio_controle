@@ -18,8 +18,8 @@
     ],
     "pd_controller_captions": [
         "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=30 \\quad K_{d_{\\textrm{mestre}}}=500 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{d_{\\textrm{escravo}}}=2",
-        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=30\\quad K_{d_{\\textrm{mestre}}}=500 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{d_{\\textrm{escravo}}}=2",
-        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=30 \\quad K_{d_{\\textrm{mestre}}}=500 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{d_{\\textrm{escravo}}}=5"
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=30\\quad K_{d_{\\textrm{mestre}}}=500 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{d_{\\textrm{escravo}}}=5",
+        "K_{p_{\\textrm{mestre}}}=500 \\quad K_{i_{\\textrm{mestre}}}=30 \\quad K_{d_{\\textrm{mestre}}}=500 \\quad K_{p_{\\textrm{escravo}}}=500 \\quad K_{d_{\\textrm{escravo}}}=10"
     ],
     "pi_controller_figures_name": [
         "Kp_master_500_Ki_master_30_Kd_master_500_Kp_slave_500_Ki_slave_5",
