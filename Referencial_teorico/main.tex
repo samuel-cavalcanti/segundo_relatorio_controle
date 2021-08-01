@@ -53,6 +53,7 @@
     \item Modificações das Ações de Controle PID:
         \begin{itemize}
             \item Existem também diversas modificações, que poderão ser necessárias em cada implementação, dependendo de características do sistema que estiver sendo controlado, das condições de operações as quais o sistema será submetido e, até mesmo, do equipamento que será utilizado para implementação do controlador.
+            \newline
         \end{itemize}
         
         \begin{enumerate}
@@ -173,11 +174,11 @@ onde \(S_1=(\xi+\sqrt{\xi^2 -1})\omega_n\) e \(S_2=(\xi-\sqrt{\xi^2 -1})\omega_n
     \[M_p(\%)=100e^-({\frac{\xi\pi}{\sqrt{1-\xi^2}}})\]
     OBS: O sobressinal máximo depende do valor do coeficiente de amortecimento \(\xi\).
     \newline
-    \item \underline{Tempo de Acomodação (Estabilização), \(t_s\)}: É o tempo necessário para que a resposta alcance e permaneça dentro de uma faixa em torno do valor final. Esta faixa é especificada por uma porcentagem absoluta do valor final (2\% ou 5\%).
+    \item \underline{Tempo de Acomodação (Estabilização), \(t_s\)}: É o tempo necessário para que a resposta alcance e permaneça dentro de uma faixa em torno do valor final. Esta faixa é especificada por uma porcentagem absoluta do valor final (2\% ou 5\%). \newline
     
-    \[t_s=\frac{4}{\xi\omega_n} \hspace{8ex} (criterio \hspace{1ex} de \hspace{1ex} 2\%)\]
+    \hspace{25ex}\(t_s=\frac{4}{\xi\omega_n}\) \hspace{10ex} (critério de 2\%) \newline
     
-    \[t_s=\frac{3}{\xi\omega_n} \hspace{8ex} (criterio \hspace{1ex} de \hspace{1ex} 5\%)\]
+    \hspace{25ex}\(t_s=\frac{3}{\xi\omega_n}\) \hspace{10ex} (critério de 5\%)\newline
     
 OBS: As curvas e especificações calculadas são válidas somente para sistemas de 2ª ordem ideal, cuja função de transferência apresenta dois polos e nenhum zero.
     \[\frac{C(S)}{R(S)}=\frac{\omega_n^2}{S^2+2\xi\omega_nS+\omega_n^2)}\]
@@ -221,7 +222,7 @@ que desejamos controlar. Sendo assim, temos inicialmente a seguinte estrutura de
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=15cm]{images/roteiro c/img ref teorico/tanque_config_2.PNG}
+    \includegraphics[width=15cm, height=4cm]{images/roteiro c/img ref teorico/tanque_config_2.PNG}
     \caption{Sistemas de Tanques na Configuração 2, com uma Única Malha de Controle.}
     \label{fig:tanque_config_2l}
 \end{figure}
@@ -237,7 +238,7 @@ a ser enviado para bomba \((V_P)\). Desta forma, passamos a ter uma estrutura de
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=15cm]{images/roteiro c/img ref teorico/config2_controle_cascata.PNG}
+    \includegraphics[width=15cm, height=4cm]{images/roteiro c/img ref teorico/config2_controle_cascata.PNG}
     \caption{Sistemas de Tanques na Configuração 2, com Controle em Cascata}
     \label{fig:config2_controle_cascata}
 \end{figure}
@@ -248,7 +249,7 @@ a ser enviado para bomba \((V_P)\). Desta forma, passamos a ter uma estrutura de
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=18cm]{images/roteiro c/img ref teorico/controle_cascata.PNG}
+    \includegraphics[width=18cm, height=8cm]{images/roteiro c/img ref teorico/controle_cascata.PNG}
     \caption{Controle Cascata do Sistema de Tanques Acoplados}
     \label{fig:controle_cascata}
 \end{figure}
